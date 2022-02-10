@@ -37,11 +37,6 @@ def remove_sic(text: str) -> str:
   return text
 
 
-# def expand_latin_abbreviations(text: str) -> str:
-#   text = text.replace("e.g.", "for example")
-#   text = text.replace("etc.", "et cetera")
-#   return text
-
 def replace_ie_with_that_is(text: str) -> str:
   text = text.replace("i.e.", "that is")
   text = text.replace("I.e.", "That is")

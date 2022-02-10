@@ -78,3 +78,10 @@ def test_normalize_our_king_names():
   res = normalize_our_king_names(text)
 
   assert res == "Sigismund the nineteenth was a king."
+
+
+def test_normalize_our_king_names__without_dot():
+  text = "Charles III and James I, Henry V and Edward VI were kings."
+  res = normalize_our_king_names(text)
+
+  assert res == "Charles the third and James the first, Henry the fifth and Edward the sixth were kings."

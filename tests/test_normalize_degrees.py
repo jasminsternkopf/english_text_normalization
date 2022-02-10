@@ -1,6 +1,6 @@
 from english_text_normalization.adjustments.normalize_degrees import (
-    normalize_degrees_minutes_and_seconds, normalize_temperatures_celsius,
-    normalize_temperatures_fahrenheit)
+    normalize_degrees_minutes_and_seconds, normalize_latitude_and_longitude,
+    normalize_temperatures_celsius, normalize_temperatures_fahrenheit)
 
 # region normalize_temperatures_celsius
 
@@ -109,5 +109,58 @@ def test_normalize_degrees_minutes_and_seconds__with_w():
   res = normalize_degrees_minutes_and_seconds(text)
 
   assert res == "My house is at longitude 12 degrees 3 seconds West"
+
+
+def test_normalize_degrees_minutes_and_seconds__with_degree_character():
+  text = "latitude 37° 59' 5\"; longitude 122° 57-1/2'."
+  res = normalize_degrees_minutes_and_seconds(text)
+
+  assert res == "latitude 37 degrees 59 minutes 5 seconds; longitude 122 degrees 57-1/2 minutes."
+
+# endregion
+
+# region normalize_latitude_and_longitude
+
+
+def test_normalize_latitude_and_longitude__lat_without_n_or_s():
+  text = "We sailed lat. 50 degrees S."
+  res = normalize_latitude_and_longitude(text)
+
+  assert res == "We sailed latitude 50 degrees S."
+
+
+def test_normalize_latitude_and_longitude__long_without_space_before__change_nothing():
+  text = "Go along."
+  res = normalize_latitude_and_longitude(text)
+
+  assert res == text
+
+
+def test_normalize_latitude_and_longitude__lat_with_capital_s():
+  text = "We sailed S. lat. 50 degrees."
+  res = normalize_latitude_and_longitude(text)
+
+  assert res == "We sailed South latitude 50 degrees."
+
+
+def test_normalize_latitude_and_longitude__lat_with_small_s():
+  text = "We sailed s. lat. 50 degrees."
+  res = normalize_latitude_and_longitude(text)
+
+  assert res == "We sailed South latitude 50 degrees."
+
+
+def test_normalize_latitude_and_longitude__long_with_small_e():
+  text = "We sailed e. long. 50 degrees."
+  res = normalize_latitude_and_longitude(text)
+
+  assert res == "We sailed East longitude 50 degrees."
+
+
+def test_normalize_latitude_and_longitude__long_with_small_e_without_dot():
+  text = "We sailed e long. 50 degrees."
+  res = normalize_latitude_and_longitude(text)
+
+  assert res == "We sailed East longitude 50 degrees."
 
 # endregion

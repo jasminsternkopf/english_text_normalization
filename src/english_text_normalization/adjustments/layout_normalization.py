@@ -29,6 +29,22 @@ def remove_everything_in_square_brackets(text: str) -> str:
   return text
 
 
+NUMBERS_IN_SQUARE_BRACKETS = re.compile(r"\[\d+\]")
+
+
+def remove_numbers_in_square_brackets(text: str) -> str:
+  text = NUMBERS_IN_SQUARE_BRACKETS.sub("", text)
+  return text
+
+
+ILLUSTRATION = re.compile(r"\[Illustration[^\]]*\]")
+
+
+def remove_illustrations(text: str) -> str:
+  text = ILLUSTRATION.sub("", text)
+  return text
+
+
 def remove_underscore_characters(text: str) -> str:
   text = text.replace("_", "")
   return text
@@ -49,10 +65,14 @@ def remove_double_hyphen_before_or_after_colon(text: str) -> str:
   return text
 
 
-# DIGITAL_TIME = re.compile(r"(\d):(\d\d)")
-# def remove_colon_in_digital_time_format(text: str) -> str:
-#   text = DIGITAL_TIME.sub(r"\1 \2", text)
-#   return text
+DIGITAL_TIME = re.compile(r"(\d):(\d\d)")
+
+
+def remove_colon_in_digital_time_format(text: str) -> str:
+  text = DIGITAL_TIME.sub(r"\1 \2", text)
+  return text
+
+
 THREE_POINTS_BETWEEN_SENTENCES = re.compile(r"(\.\"| )\.\.\. (\"{0,1}[A-Z])")
 THREE_POINTS_MID_SENTENCE = re.compile(r"\.\.\. ([^A-Z])")
 
@@ -67,6 +87,11 @@ def normalize_three_and_four_dots(text: str) -> str:
 
 def replace_four_hyphens_by_two(text: str) -> str:
   text = text.replace("----", "--")
+  return text
+
+
+def remove_four_hyphens(text: str) -> str:
+  text = text.replace("----", "")
   return text
 
 

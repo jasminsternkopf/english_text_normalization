@@ -28,3 +28,18 @@ PERCENT = re.compile(r"(\d) ?%")
 def normalize_percent(text: str) -> str:
   text = PERCENT.sub(r"\1 percent", text)
   return text
+
+
+def normalize_double_quotation_marks(text: str) -> str:
+  text = text.replace("“", "\"")
+  text = text.replace("”", "\"")
+  return text
+
+
+UNUSUAL_QUOTATION_MARKS = re.compile(r"‘([^’]{2,2000})’")
+
+
+def normalize_single_quotation_marks_and_apostrophes(text: str) -> str:
+  text = UNUSUAL_QUOTATION_MARKS.sub(r'"\1"', text)
+  text = text.replace("’", "'")
+  return text
