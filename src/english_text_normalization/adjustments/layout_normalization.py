@@ -20,16 +20,14 @@ def remove_linebreaks(text: str) -> str:
   text = text.replace("\n", " ")
   return text
 
-# NUMBERS_IN_SQUARE_BRACKETS = re.compile(r"\[\d+\]")
-# ILLUSTRATION = re.compile(r"\[Illustration[^\]]*\]")
-# def remove_numbers_in_square_brackets(text: str) -> str:
-#   text = NUMBERS_IN_SQUARE_BRACKETS.sub("", text)
-#   return text
+
+SQUARE_BRACKETS_AND_ITS_CONTENTS = re.compile(r"\[[^\]]{0,1000}\]")
 
 
-# def remove_illustrations(text: str) -> str:
-#   text = ILLUSTRATION.sub("", text)
-#   return text
+def remove_everything_in_square_brackets(text: str) -> str:
+  text = SQUARE_BRACKETS_AND_ITS_CONTENTS.sub("", text)
+  return text
+
 
 def remove_underscore_characters(text: str) -> str:
   text = text.replace("_", "")
