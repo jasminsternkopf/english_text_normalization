@@ -37,15 +37,23 @@ def remove_sic(text: str) -> str:
   return text
 
 
+IE_SMALL = re.compile(r" i\. ?e\.")
+IE_CAPITAL_I = re.compile(r" I\. ?e\.")
+
+
 def replace_ie_with_that_is(text: str) -> str:
-  text = text.replace("i.e.", "that is")
-  text = text.replace("I.e.", "That is")
+  text = IE_SMALL.sub(" that is", text)
+  text = IE_CAPITAL_I.sub(" That is", text)
   return text
 
 
+EG_SMALL = re.compile(r" e\. ?g\.")
+EG_CAPITAL_E = re.compile(r" E\. ?g\.")
+
+
 def replace_eg_with_for_example(text: str) -> str:
-  text = text.replace("e.g.", "for example")
-  text = text.replace("E.g.", "For example")
+  text = EG_SMALL.sub(" for example", text)
+  text = EG_CAPITAL_E.sub(" For example", text)
   return text
 
 
@@ -55,6 +63,32 @@ def replace_etc_with_et_cetera(text: str) -> str:
   return text
 
 
+VG_SMALL = re.compile(r" v\. ?g\.")
+VG_CAPITAL_V = re.compile(r" V\. ?g\.")
+
+
+def replace_vg_with_for_instance(text: str) -> str:
+  text = VG_SMALL.sub(" for instance", text)
+  text = VG_CAPITAL_V.sub(" For instance", text)
+  return text
+
+
 def geo_to_george_general(text: str) -> str:
   text = text.replace(" Geo. ", " George ")
   return text
+
+
+P_DOT_BEFORE_RANGE_OF_NUMBERS = re.compile(r" p\. (\d+-\d+)")
+P_DOT_BEFORE_NUMBERS_SEPARATED_BY_COMMA = re.compile(r" p\. (\d+, \d+\b)")
+P_DOT_BEFORE_NUMBER = re.compile(r" p\. (\d)")
+# pp. auch TODO
+
+
+def p_dot_before_number_to_page(text: str) -> str:
+  text = P_DOT_BEFORE_RANGE_OF_NUMBERS.sub(r" pages \1", text)
+  text = P_DOT_BEFORE_NUMBERS_SEPARATED_BY_COMMA.sub(r" pages \1", text)
+  text = P_DOT_BEFORE_NUMBER.sub(r" page \1", text)
+  return text
+
+
+#  [a-hj-oq-uw-z]\. [^A-Z]

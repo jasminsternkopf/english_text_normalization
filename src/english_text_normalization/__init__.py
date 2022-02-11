@@ -25,5 +25,5 @@ from english_text_normalization.adjustments import (
     replace_etc_with_et_cetera, replace_four_hyphens_by_two,
     replace_hyphen_between_numbers_with_to, replace_ie_with_that_is,
     replace_mail_addresses, replace_no_with_number, replace_nos_with_numbers,
-    write_out_month_abbreviations)
+    replace_vg_with_for_instance, write_out_month_abbreviations)
 from english_text_normalization.sentence_extraction import extract_sentences
