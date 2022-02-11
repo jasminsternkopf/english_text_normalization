@@ -19,17 +19,17 @@ def normalize_today_and_tomorrow(text: str) -> str:
   return text
 
 
-GEO_AND_C_OR_CAP = re.compile(r"Geo\. ([IVX]{1,3}\.) (c(ap)?)\. (\d)")
-S_AFTER_GEO = re.compile(r", s. (\d)")
-GEO = re.compile(r"Geo\. ([IVX]{1,3}\.)")
+# GEO_AND_C_OR_CAP = re.compile(r"Geo\. ([IVX]{1,3}\.) (c(ap)?)\. (\d)")
+# S_AFTER_GEO = re.compile(r", s. (\d)")
+# GEO = re.compile(r"Geo\. ([IVX]{1,3}\.)")
 
 
-def geo_to_george(text: str) -> str:  # brauch ich das?
-  #text = text.replace("Geo.", "George")
-  text = GEO_AND_C_OR_CAP.sub(r"George \1 \2 \4", text)
-  text = S_AFTER_GEO.sub(r", s \1", text)
-  text = GEO.sub(r"George \1", text)
-  return text
+# def geo_to_george(text: str) -> str:  # brauch ich das?
+#   #text = text.replace("Geo.", "George")
+#   text = GEO_AND_C_OR_CAP.sub(r"George \1 \2 \4", text)
+#   text = S_AFTER_GEO.sub(r", s \1", text)
+#   text = GEO.sub(r"George \1", text)
+#   return text
 
 
 def remove_sic(text: str) -> str:
@@ -73,7 +73,7 @@ def replace_vg_with_for_instance(text: str) -> str:
   return text
 
 
-def geo_to_george_general(text: str) -> str:
+def geo_to_george(text: str) -> str:
   text = text.replace(" Geo. ", " George ")
   return text
 
@@ -84,7 +84,7 @@ P_DOT_BEFORE_NUMBER = re.compile(r" p\. (\d)")
 # pp. auch TODO
 
 
-def p_dot_before_number_to_page(text: str) -> str:
+def change_p_dot_before_number_into_page(text: str) -> str:
   text = P_DOT_BEFORE_RANGE_OF_NUMBERS.sub(r" pages \1", text)
   text = P_DOT_BEFORE_NUMBERS_SEPARATED_BY_COMMA.sub(r" pages \1", text)
   text = P_DOT_BEFORE_NUMBER.sub(r" page \1", text)

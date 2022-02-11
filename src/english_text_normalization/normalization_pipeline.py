@@ -19,7 +19,7 @@ from english_text_normalization.adjustments.money_normalization import \
 from english_text_normalization.adjustments.month_normalization import \
     write_out_month_abbreviations
 from english_text_normalization.adjustments.normalizaton_of_certain_words_and_abbr import (
-    geo_to_george_general, normalize_today_and_tomorrow, remove_sic,
+    geo_to_george, normalize_today_and_tomorrow, remove_sic,
     replace_eg_with_for_example, replace_etc_with_et_cetera,
     replace_ie_with_that_is, replace_no_with_number, replace_nos_with_numbers)
 from english_text_normalization.adjustments.normalize_degrees import (
@@ -27,7 +27,7 @@ from english_text_normalization.adjustments.normalize_degrees import (
 from english_text_normalization.adjustments.numbers import (
     expand_and_a_half, normalize_numbers,
     normalize_second_and_third_when_abbr_with_d)
-from english_text_normalization.adjustments.remove_dots_after_single_letters import (
+from english_text_normalization.adjustments.remove_dots_that_are_not_end_of_sentence import (
     normalize_am_and_pm, remove_dot_after_single_capital_letters)
 from english_text_normalization.adjustments.unit_abbreviations_normalization import \
     normalize_all_units
@@ -65,7 +65,7 @@ def general_pipeline(text: str) -> str:
   text = replace_etc_with_et_cetera(text)  # untesrcheidund groß/kleinbuchstabe danach?
   text = replace_nos_with_numbers(text)
   text = replace_no_with_number(text)
-  text = geo_to_george_general(text)
+  text = geo_to_george(text)
   text = write_out_month_abbreviations(text)
   text = normalize_today_and_tomorrow(text)
   text = normalize_our_king_names(text)
@@ -94,7 +94,7 @@ def general_pipeline(text: str) -> str:
   text = text.strip()
   return text
 # alles in [] wegcutten \[[^I\dFGS_g]
-# Anyway ... as I was saying ... Let's see ... I had lost my head, and--" testcase mit ...
+
 
 
 if __name__ == "__main__":

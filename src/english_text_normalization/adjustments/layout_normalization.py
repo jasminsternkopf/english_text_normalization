@@ -31,6 +31,13 @@ def remove_everything_in_square_brackets(text: str) -> str:
 
 STAGE_DIRECTIONS = re.compile(r"\[_[^\]]{0,500}_\.\n")
 
+"""
+TODO
+alles was [] betrifft:
+nur entfernen wenn mitten in einem Satz (z.B. Hallo, [abc] Welt!), ansonsten einfach Klammern entfernen und REst behalten
+
+"""
+
 
 def remove_stage_directions(text: str) -> str:
   text = STAGE_DIRECTIONS.sub("", text)

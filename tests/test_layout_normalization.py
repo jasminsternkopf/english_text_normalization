@@ -1,8 +1,9 @@
 from english_text_normalization.adjustments.layout_normalization import (
-    add_dot_after_headings, insert_space_before_and_after_double_hyphen, normalize_three_and_four_dots,
-    remove_illustrations, remove_linebreaks, remove_numbers_in_square_brackets,
+    add_dot_after_headings, insert_space_before_and_after_double_hyphen,
+    normalize_three_and_four_dots, remove_illustrations, remove_linebreaks,
+    remove_numbers_in_square_brackets,
     remove_quotation_marks_when_used_as_itemization, remove_repeated_spaces,
-    remove_underscore_characters)
+    remove_stage_directions, remove_underscore_characters)
 
 # region add_dot_after_headings
 
@@ -83,6 +84,13 @@ def test_normalize_three_and_four_dots__end_of_sentence__four_dots():
   res = normalize_three_and_four_dots(text)
 
   assert remove_repeated_spaces(res) == "Hello world."
+
+
+def xtest_normalize_three_and_four_dots__from_book():
+  text = "Anyway ... as I was saying ... Let's see ... I had lost my head, and--\""
+  res = normalize_three_and_four_dots(text)
+
+  assert res == "Anyway as I was saying. Let's see. I had lost my head, and--\""
 
 # endregion
 
@@ -184,3 +192,29 @@ def test_insert_space_before_and_after_double_hyphen__do_not_replace_as_capital_
 
 # endregion
 
+# region remove_stage_directions
+
+
+def xtest_remove_stage_directions__stage_direction_over_one_line_followed_by_another_paragraph():
+  text = r"[_Abc\_.\n\n_Abc\ndef_."
+  res = remove_stage_directions(text)
+
+  assert res == r"\n_Abc\ndef_."
+
+
+def xtest_remove_stage_directions__stage_direction_over_several_lines__follwed_by_another_paragraph():
+  """
+  [_Abc
+  def
+  ehj_.
+
+  _Abc
+  def_.
+
+  """
+  text = "[_Abc\ndef\nehj_.\n\n_Abc\ndef_.\n"
+  res = remove_stage_directions(text)
+
+  assert res == "\n_Abc\ndef_."
+
+# endregion

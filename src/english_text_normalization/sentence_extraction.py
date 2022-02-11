@@ -5,7 +5,7 @@ from english_text_normalization.adjustments.abbreviations import \
     expand_abbreviations
 from english_text_normalization.adjustments.layout_normalization import (
     remove_linebreaks, remove_repeated_spaces)
-from english_text_normalization.adjustments.remove_dots_after_single_letters import \
+from english_text_normalization.adjustments.remove_dots_that_are_not_end_of_sentence import \
     remove_dot_after_single_capital_letters
 from english_text_normalization.auxiliary_methods.txt_files_reading import \
     get_text_files

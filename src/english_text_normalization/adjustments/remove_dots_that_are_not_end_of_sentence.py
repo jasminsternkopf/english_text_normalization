@@ -22,5 +22,17 @@ def remove_dot_after_single_capital_letters(text: str) -> str:
 # [b-dfghj-oq-ux-z]\.[a-z]
 
 
+SINGLE_SMALL_LETTER_WITHOUT_CAPITAL_LETTER_AFTERWARDS = re.compile(r" ([a-z])\. ([^A-Z])")
+
+
 def remove_dot_after_single_small_letters(text: str) -> str:
-  pass
+  text = SINGLE_SMALL_LETTER_WITHOUT_CAPITAL_LETTER_AFTERWARDS.sub(r" \1 \2", text)
+  return text
+
+
+WORDS_WITH_DOT_FOLLOWED_BY_SPACE_AND_NUMBER = re.compile(r"(\w+)\. (\d)")
+
+
+def remove_dot_between_word_and_number(text: str) -> str:
+  text = WORDS_WITH_DOT_FOLLOWED_BY_SPACE_AND_NUMBER.sub(r"\1 \2", text)
+  return text

@@ -8,6 +8,6 @@ from english_text_normalization.adjustments.month_normalization import *
 from english_text_normalization.adjustments.normalizaton_of_certain_words_and_abbr import *
 from english_text_normalization.adjustments.normalize_degrees import *
 from english_text_normalization.adjustments.numbers import *
-from english_text_normalization.adjustments.remove_dots_after_single_letters import *
+from english_text_normalization.adjustments.remove_dots_that_are_not_end_of_sentence import *
 from english_text_normalization.adjustments.unit_abbreviations_normalization import *
 from english_text_normalization.adjustments.write_out_special_characters import *
