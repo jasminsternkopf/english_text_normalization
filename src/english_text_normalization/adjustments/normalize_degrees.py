@@ -83,9 +83,10 @@ def normalize_degrees_minutes_and_seconds(text: str) -> str:
 
 
 LATITUDE = [(r" N\.? lat\.", " North latitude"), (r" S\.? lat\.",
-                                                 " South latitude"), (r" lat\.", " latitude")]
+                                                  " South latitude"), (r" lat\.", " latitude")]
 LONGITUDE = [(r" W\.? long\.", " West longitude"), (r" E\.? long\.",
-                                                   " East longitude"), (r" long\.", " longitude")]
+                                                    " East longitude")]
+# cannot replace " long." as this is very often the word "long" at the end of a sentence TODO
 
 
 def first_element_of_tuple_to_regex_with_ignore_case(tuple_iter: Iterable[Tuple[str, str]]):

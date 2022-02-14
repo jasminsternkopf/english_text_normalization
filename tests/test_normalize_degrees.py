@@ -130,7 +130,7 @@ def test_normalize_latitude_and_longitude__lat_without_n_or_s():
 
 
 def test_normalize_latitude_and_longitude__long_without_space_before__change_nothing():
-  text = "Go along."
+  text = "The way is too long."
   res = normalize_latitude_and_longitude(text)
 
   assert res == text

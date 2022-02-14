@@ -127,3 +127,7 @@ def remove_equal_sign(text: str) -> str:
   # is very rarely used as actual equal sign, much more often in headings or accentuation
   text = text.replace("=", "")
   return text
+
+def remove_tilde(text: str) -> str:
+  text = text.replace("~", "")
+  return text
