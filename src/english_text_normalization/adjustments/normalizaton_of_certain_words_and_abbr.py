@@ -65,6 +65,11 @@ def replace_etc_with_et_cetera(text: str) -> str:
   return text
 
 
+def replace_and_char_c_dot_with_and_so_forth(text: str) -> str:
+  text = text.replace("&c.", "and so forth")
+  return text
+
+
 VIZ_WITH_COMMA_OR_SEMICOLON_BEFORE = re.compile(r"(,|;) viz\.?,")
 VIZ = re.compile(r" viz\.")
 

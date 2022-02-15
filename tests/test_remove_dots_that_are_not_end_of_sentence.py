@@ -1,6 +1,8 @@
 from english_text_normalization.adjustments.remove_dots_that_are_not_end_of_sentence import (
     remove_dot_after_single_capital_letters,
-    remove_dot_after_single_small_letters, remove_dot_between_word_and_number)
+    remove_dot_after_single_small_letters,
+    remove_dot_after_word_not_followed_by_new_sentence,
+    remove_dot_between_word_and_number)
 
 # region remove_dot_after_single_capital_letters
 
@@ -53,5 +55,30 @@ def test_remove_dot_between_word_and_number():
   res = remove_dot_between_word_and_number(text)
 
   assert res == "See cap 5, s 4."
+
+# endregion
+
+# region remove_dot_after_word_not_followed_by_capital_letter
+
+
+def test_remove_dot_after_word_not_followed_by_capital_letter():
+  text = "It was called Number Five, or ad. lib., and consisted of either eggs, fish, a chop, beef-tea, or arrowroot, or anything else of the same value."
+  res = remove_dot_after_word_not_followed_by_new_sentence(text)
+
+  assert res == "It was called Number Five, or ad lib, and consisted of either eggs, fish, a chop, beef-tea, or arrowroot, or anything else of the same value."
+
+
+def test_remove_dot_after_word_not_followed_by_capital_letter__do_not_remove_dot_as_it_is_followed_by_new_sentence():
+  text = "Hello World. Hey there!"
+  res = remove_dot_after_word_not_followed_by_new_sentence(text)
+
+  assert res == text
+
+
+def test_remove_dot_after_word_not_followed_by_capital_letter__do_not_remove_dot_as_it_is_followed_by_new_sentence_which_is_a_quote():
+  text = "Hello World. \"Hey there!\""
+  res = remove_dot_after_word_not_followed_by_new_sentence(text)
+
+  assert res == text
 
 # endregion

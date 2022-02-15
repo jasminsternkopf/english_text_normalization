@@ -41,3 +41,9 @@ def remove_dot_between_word_and_number(text: str) -> str:
 def remove_dot_before_comma(text: str) -> str:
   text = text.replace(".,", ",")
   return text
+
+WORD_WITH_DOT_NOT_FOLLOWED_BY_CAPITAL_LETTER = re.compile(r"([a-z])\.([,;:]? )([^A-Z\"(\[])")
+
+def remove_dot_after_word_not_followed_by_new_sentence(text: str) -> str:
+  text = WORD_WITH_DOT_NOT_FOLLOWED_BY_CAPITAL_LETTER.sub(r"\1\2\3", text)
+  return text
