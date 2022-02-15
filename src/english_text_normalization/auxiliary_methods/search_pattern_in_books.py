@@ -77,6 +77,4 @@ def process_matches(matches: Iterator):
   return matches_linewise
 
 
-def write_in_txt_file(text: str, path: Path):
-  path.parent.mkdir(parents=True, exist_ok=True)
-  path.write_text(text, encoding="UTF-8")
+

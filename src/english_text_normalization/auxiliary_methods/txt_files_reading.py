@@ -5,9 +5,6 @@ from typing import Generator, Iterable, List, Optional
 from typing import OrderedDict as OrderedDictType
 from typing import Set, Tuple
 
-from english_text_normalization.auxiliary_methods.search_pattern_in_books import \
-    write_in_txt_file
-
 TXT_FILE_TYPE = ".txt"
 
 
@@ -52,3 +49,8 @@ def get_str_out_of_txt_file(filename: str, sep: str = "\n") -> List[str]:
 def dump_iterable_in_txt_file(text_as_iterable: Iterable[str], path: Path):
   text_as_str = "\n".join(text_as_iterable)
   write_in_txt_file(text_as_str, path)
+
+
+def write_in_txt_file(text: str, path: Path):
+  path.parent.mkdir(parents=True, exist_ok=True)
+  path.write_text(text, encoding="UTF-8")
