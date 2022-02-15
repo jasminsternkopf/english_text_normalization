@@ -11,11 +11,13 @@ def replace_nos_with_numbers(text: str) -> str:
   return text
 
 
-def normalize_today_and_tomorrow(text: str) -> str:
+def normalize_today_tomorrow_and_tonight(text: str) -> str:
   text = text.replace("To-day", "Today")
   text = text.replace("to-day", "today")
   text = text.replace("To-morrow", "Tomorrow")
   text = text.replace("to-morrow", "tomorrow")
+  text = text.replace("To-night", "Tonight")
+  text = text.replace("to-night", "tonight")
   return text
 
 
@@ -60,6 +62,16 @@ def replace_eg_with_for_example(text: str) -> str:
 def replace_etc_with_et_cetera(text: str) -> str:
   text = text.replace("etc.", "et cetera")
   text = text.replace("Etc.", "Et cetera")
+  return text
+
+
+VIZ_WITH_COMMA_OR_SEMICOLON_BEFORE = re.compile(r"(,|;) viz\.?,")
+VIZ = re.compile(r" viz\.")
+
+
+def replace_viz_with_which_is(text: str) -> str:
+  text = VIZ_WITH_COMMA_OR_SEMICOLON_BEFORE.sub(r"\1 which is,", text)
+  text = VIZ.sub(" which is", text)
   return text
 
 

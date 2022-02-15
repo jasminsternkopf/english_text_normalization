@@ -36,3 +36,8 @@ WORDS_WITH_DOT_FOLLOWED_BY_SPACE_AND_NUMBER = re.compile(r"(\w+)\. (\d)")
 def remove_dot_between_word_and_number(text: str) -> str:
   text = WORDS_WITH_DOT_FOLLOWED_BY_SPACE_AND_NUMBER.sub(r"\1 \2", text)
   return text
+
+
+def remove_dot_before_comma(text: str) -> str:
+  text = text.replace(".,", ",")
+  return text

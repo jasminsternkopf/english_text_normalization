@@ -43,3 +43,8 @@ def normalize_single_quotation_marks_and_apostrophes(text: str) -> str:
   text = UNUSUAL_QUOTATION_MARKS.sub(r'"\1"', text)
   text = text.replace("’", "'")
   return text
+
+
+def write_out_plus_when_surrounded_by_space(text: str) -> str:
+  text = text.replace(" + ", " plus ")
+  return text

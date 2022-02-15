@@ -19,7 +19,7 @@ from english_text_normalization.adjustments.money_normalization import \
 from english_text_normalization.adjustments.month_normalization import \
     write_out_month_abbreviations
 from english_text_normalization.adjustments.normalizaton_of_certain_words_and_abbr import (
-    geo_to_george, normalize_today_and_tomorrow, remove_sic,
+    geo_to_george, normalize_today_tomorrow_and_tonight, remove_sic,
     replace_eg_with_for_example, replace_etc_with_et_cetera,
     replace_ie_with_that_is, replace_no_with_number, replace_nos_with_numbers)
 from english_text_normalization.adjustments.normalize_degrees import (
@@ -67,7 +67,7 @@ def general_pipeline(text: str) -> str:
   text = replace_no_with_number(text)
   text = geo_to_george(text)
   text = write_out_month_abbreviations(text)
-  text = normalize_today_and_tomorrow(text)
+  text = normalize_today_tomorrow_and_tonight(text)
   text = normalize_our_king_names(text)
   text = normalize_am_and_pm(text)
   text = normalize_pounds_shillings_and_pence(text)

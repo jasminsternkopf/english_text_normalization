@@ -12,7 +12,7 @@ from english_text_normalization.adjustments import (
     normalize_single_quotation_marks_and_apostrophes,
     normalize_temperatures_celsius, normalize_temperatures_fahrenheit,
     normalize_temperatures_general, normalize_three_and_four_dots,
-    normalize_time_units, normalize_today_and_tomorrow, normalize_weight_units,
+    normalize_time_units, normalize_today_tomorrow_and_tonight, normalize_weight_units,
     remove_colon_in_digital_time_format,
     remove_dot_after_single_capital_letters,
     remove_dot_after_single_small_letters, remove_dot_between_word_and_number,
@@ -27,5 +27,5 @@ from english_text_normalization.adjustments import (
     replace_four_hyphens_by_two, replace_hyphen_between_numbers_with_to,
     replace_ie_with_that_is, replace_mail_addresses, replace_no_with_number,
     replace_nos_with_numbers, replace_vg_with_for_instance,
-    write_out_month_abbreviations)
+    write_out_month_abbreviations, remove_dot_before_comma, replace_viz_with_which_is, write_out_plus_when_surrounded_by_space)
 from english_text_normalization.sentence_extraction import extract_sentences

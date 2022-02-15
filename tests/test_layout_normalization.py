@@ -190,6 +190,20 @@ def test_insert_space_before_and_after_double_hyphen__do_not_replace_as_capital_
 
   assert res == text
 
+
+def test_insert_space_before_and_after_double_hyphen__comma_after_double_hyphen__no_space_between_double_hyphen_and_comma():
+  text = "\"Hoooo--,\" says Bowie."
+  res = insert_space_before_and_after_double_hyphen(text)
+
+  assert res == "\"Hoooo --,\" says Bowie."
+
+
+def test_insert_space_before_and_after_double_hyphen__do_not_replace_because_capital_letter_followed_by_four_hyphens():
+  text = "Adieu, dear L----, thou picture of boisterous industry!"
+  res = insert_space_before_and_after_double_hyphen(text)
+
+  assert res == text
+
 # endregion
 
 # region remove_stage_directions

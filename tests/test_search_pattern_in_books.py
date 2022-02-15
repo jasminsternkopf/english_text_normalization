@@ -6,8 +6,9 @@ from english_text_normalization.auxiliary_methods.search_pattern_in_books import
     search_pattern_in_all_books_and_name_with_first_letter_capital_rest_small_before,
     search_pattern_in_all_books_and_word_after,
     search_pattern_in_all_books_and_word_before,
-    search_pattern_in_all_books_and_word_before_and_after, write_in_txt_file)
+    search_pattern_in_all_books_and_word_before_and_after)
 
+from english_text_normalization.auxiliary_methods.txt_files_reading import write_in_txt_file
 
 def test_search_pattern_in_all_books():
   books = [
