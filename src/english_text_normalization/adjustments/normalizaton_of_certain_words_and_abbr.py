@@ -1,13 +1,26 @@
 import re
 
+SENTENCE_ENDS = [".", "?", "!"]
+SENTENCE_ENDS = [re.escape(x) for x in SENTENCE_ENDS]
+NO_DOT_AT_START_OF_SENTENCE = [re.compile(
+  rf"({end}[\"')]{{0,3}} +(?:-- )?\"?)No\. (\d)") for end in SENTENCE_ENDS]
+
 
 def replace_no_with_number(text: str) -> str:
-  text = text.replace("No. ", "number ")
+  for no_dot_at_start_of_sentence in NO_DOT_AT_START_OF_SENTENCE:
+    text = no_dot_at_start_of_sentence.sub(r"\1Number \2", text)
+  text = text.replace("No. ", "number ")  # TODO
   return text
 
 
+NOS_DOT_AT_START_OF_SENTENCE = [re.compile(
+  rf"({end}[\"')]{{0,3}} +(?:-- )?\"?)Nos\. (\d)") for end in SENTENCE_ENDS]
+
+
 def replace_nos_with_numbers(text: str) -> str:
-  text = text.replace("Nos. ", "numbers ")
+  for nos_dot_at_start_of_sentence in NOS_DOT_AT_START_OF_SENTENCE:
+    text = nos_dot_at_start_of_sentence.sub(r"\1Numbers \2", text)
+  text = text.replace("Nos. ", "numbers ")  # TODO
   return text
 
 

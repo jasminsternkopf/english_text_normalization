@@ -34,6 +34,7 @@ _mappings = [
   ('Drs', 'Doctors'),
   ('Rev', 'Reverend'),
   ('Lt', 'Lieutenant'),  # kommt glaube nicht vor
+  ('Lieut', 'Lieutenant'),
   ('Hon', 'Honorable'),
   ('Sgt', 'Sergeant'),  # kommt glaube nicht vor
   ('Capt', 'Captain'),  # kommt glaube nicht vor
@@ -41,7 +42,8 @@ _mappings = [
   ('ltd', 'limited'),  # kommt glaube nicht vor, keine Ahnung ob groß oder klein
   ('Col', 'Colonel'),  # kommt glaube nicht vor
   ('ft', 'fort'),  # kommt glaube nicht vor, keine Ahnung ob groß oder klein
-  ('MM', 'Messieurs')
+  ('MM', 'Messieurs'),
+  ('Bart', 'Baronet')
 ]
 
 # List of (regular expression, replacement) pairs for abbreviations:

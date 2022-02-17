@@ -34,7 +34,8 @@ def extract_sentences(text: str, normalizer: Callable[[str], str]) -> str:
   for sentence_end in SENTENCE_ENDS_AND_CAPITAL_LETTER:
     text = sentence_end.sub(r"\1\n\2", text)
   text = remove_quotation_marks_in_line_if_uneven_number_of_them(text)
-  text = remove_quotation_marks_in_line_if_uneven_number_of_them(text, "'")
+  text = remove_quotation_marks_in_line_if_uneven_number_of_them(
+    text, "'")  # TODO entfernt ' bei 's, nicht so clever
   return text
 
 

@@ -111,7 +111,7 @@ def normalize_second_and_third_when_abbr_with_d(text: str) -> str:
 SENTENCE_ENDS = [".", "?", "!"]
 SENTENCE_ENDS = [re.escape(x) for x in SENTENCE_ENDS]
 NUMBER_AT_BEGINNING_OF_SENTENCE = [re.compile(
-  rf"({end}[\"')]{{0,3}} (?:-- )?)(\d+)") for end in SENTENCE_ENDS]
+  rf"{end}[\"')]{{0,3}} +(?:-- )?\"?\d+") for end in SENTENCE_ENDS]
 
 NUMBER = re.compile(r"\d+")
 

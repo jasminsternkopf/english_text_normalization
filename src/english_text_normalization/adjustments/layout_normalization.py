@@ -112,8 +112,12 @@ def remove_four_hyphens(text: str) -> str:
   return text
 
 
+STARS = re.compile(r" *\*")
+
+
 def remove_stars(text: str) -> str:
-  text = text.replace("*", "")
+  #text = text.replace("*", "")
+  text = STARS.sub("", text)
   return text
 
 
