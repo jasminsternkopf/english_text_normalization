@@ -109,3 +109,13 @@ def change_p_dot_before_number_into_page(text: str) -> str:
 
 
 #  [a-hj-oq-uw-z]\. [^A-Z]
+
+PERCENT_NOT_END_OF_SENTENCE = re.compile(r" per cent\.([^ \"\?!]?\"?(?: |--)[^A-Z\"])")
+PERCENT_BEFORE_QUESTION_OR_EXCLAMATION_MARK = re.compile(r" per cent\.([!\?])")
+
+
+def normalize_per_cent_dot_if_not_end_of_sentence(text: str) -> str:
+  text = PERCENT_NOT_END_OF_SENTENCE.sub(r" percent\1", text)
+  text = PERCENT_BEFORE_QUESTION_OR_EXCLAMATION_MARK.sub(r" percent\1", text)
+  text = text.replace(" per cent", " percent")
+  return text
