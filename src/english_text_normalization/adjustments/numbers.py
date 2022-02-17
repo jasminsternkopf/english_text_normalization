@@ -101,9 +101,30 @@ def expand_and_a_half(text: str) -> str:
 
 
 def normalize_second_and_third_when_abbr_with_d(text: str) -> str:
-  #TODO
+  # TODO
   text = text.replace("22d", "twenty-second")
   text = text.replace("2d", "second")
   text = text.replace("3d", "third")
+  return text
 
+
+SENTENCE_ENDS = [".", "?", "!"]
+SENTENCE_ENDS = [re.escape(x) for x in SENTENCE_ENDS]
+NUMBER_AT_BEGINNING_OF_SENTENCE = [re.compile(
+  rf"({end}[\"')]{{0,3}} (?:-- )?)(\d+)") for end in SENTENCE_ENDS]
+
+NUMBER = re.compile(r"\d+")
+
+
+def replace_match(match) -> str:
+  text = match.group()
+  number = NUMBER.search(text)
+  number_as_word_with_first_capital_letter = normalize_numbers(number.group()).capitalize()
+  replacement = NUMBER.sub(number_as_word_with_first_capital_letter, text)
+  return replacement
+
+
+def number_to_word_when_number_at_beginning_of_sentence(text: str) -> str:
+  for number_at_beginning_of_sentence in NUMBER_AT_BEGINNING_OF_SENTENCE:
+    text = number_at_beginning_of_sentence.sub(replace_match, text)
   return text
