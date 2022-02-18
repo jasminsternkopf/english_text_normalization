@@ -7,7 +7,7 @@ from english_text_normalization.adjustments.abbreviations import \
 from english_text_normalization.adjustments.emails import \
     normalize_emails_and_at
 from english_text_normalization.adjustments.king_names_normalization import \
-    normalize_our_king_names
+    normalize_king_name_followed_by_roman_numeral
 from english_text_normalization.adjustments.layout_normalization import (
     add_dot_after_headings, insert_space_before_and_after_double_hyphen,
     normalize_three_and_four_dots, remove_double_hyphen_before_or_after_colon,
@@ -68,7 +68,7 @@ def general_pipeline(text: str) -> str:
   text = geo_to_george(text)
   text = write_out_month_abbreviations(text)
   text = normalize_today_tomorrow_and_tonight(text)
-  text = normalize_our_king_names(text)
+  text = normalize_king_name_followed_by_roman_numeral(text)
   text = normalize_am_and_pm(text)
   text = normalize_pounds_shillings_and_pence(text)
   text = normalize_temperatures_general(text)

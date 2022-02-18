@@ -1,6 +1,6 @@
 from english_text_normalization.adjustments.king_names_normalization import (
     add_the_between_king_name_and_roman_numeral, normalize_king_names_general,
-    normalize_our_king_names)
+    normalize_king_name_followed_by_roman_numeral)
 
 
 def test_add_the_between_king_name_and_roman_numeral():
@@ -80,15 +80,15 @@ def test_normalize_king_names_general__king_name_that_is_not_in_safe_king_names_
   assert res == text
 
 
-def test_normalize_our_king_names():
+def test_normalize_king_name_followed_by_roman_numeral():
   text = "Sigismund XIX was a king."
-  res = normalize_our_king_names(text)
+  res = normalize_king_name_followed_by_roman_numeral(text)
 
   assert res == "Sigismund the nineteenth was a king."
 
 
-def test_normalize_our_king_names__without_dot():
+def test_normalize_king_name_followed_by_roman_numeral__without_dot():
   text = "Charles III and James I, Henry V, Fred X and Edward VI were kings."
-  res = normalize_our_king_names(text)
+  res = normalize_king_name_followed_by_roman_numeral(text)
 
   assert res == "Charles the third and James the first, Henry the fifth, Fred the tenth and Edward the sixth were kings."

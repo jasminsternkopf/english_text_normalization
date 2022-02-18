@@ -56,7 +56,7 @@ SAFE_KING_NAMES = {"Henry", "Charles", "James", "George", "Edward",
                    "Richard", "Ferdinand", "William", "Clement", "Louis", "Napoleon", "Philip", "Thibault", "Clement", "Catharine", "Alexander", "Leo", "Henri", "Christian", "Nicholas", "Hermann", "Akbar", "Harry", "Rodolph", "Gregory", "Fred", "Urban", "Karl", "Frederic", "Paul"}
 
 
-def normalize_our_king_names(text: str) -> str:
-  king_names = get_list_out_of_txt_file("data/name_corpus.txt")
+def normalize_king_name_followed_by_roman_numeral(text: str) -> str:
+  king_names = get_list_out_of_txt_file("name_corpus.txt")
   text = normalize_king_names_general(text, king_names, SAFE_KING_NAMES)
   return text
