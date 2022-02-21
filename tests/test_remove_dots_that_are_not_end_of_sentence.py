@@ -58,27 +58,31 @@ def test_remove_dot_between_word_and_number():
 
 # endregion
 
-# region remove_dot_after_word_not_followed_by_capital_letter
+# region remove_dot_after_word_not_followed_by_new_sentence
 
 
-def test_remove_dot_after_word_not_followed_by_capital_letter():
+def test_remove_dot_after_word_not_followed_by_new_sentence():
   text = "It was called Number Five, or ad. lib., and consisted of either eggs, fish, a chop, beef-tea, or arrowroot, or anything else of the same value."
   res = remove_dot_after_word_not_followed_by_new_sentence(text)
 
   assert res == "It was called Number Five, or ad lib, and consisted of either eggs, fish, a chop, beef-tea, or arrowroot, or anything else of the same value."
 
 
-def test_remove_dot_after_word_not_followed_by_capital_letter__do_not_remove_dot_as_it_is_followed_by_new_sentence():
+def test_remove_dot_after_word_not_followed_by_new_sentence__do_not_remove_dot_as_it_is_followed_by_new_sentence():
   text = "Hello World. Hey there!"
   res = remove_dot_after_word_not_followed_by_new_sentence(text)
 
   assert res == text
 
 
-def test_remove_dot_after_word_not_followed_by_capital_letter__do_not_remove_dot_as_it_is_followed_by_new_sentence_which_is_a_quote():
+def test_remove_dot_after_word_not_followed_by_new_sentence__do_not_remove_dot_as_it_is_followed_by_new_sentence_which_is_a_quote():
   text = "Hello World. \"Hey there!\""
   res = remove_dot_after_word_not_followed_by_new_sentence(text)
 
   assert res == text
+
+
+def test_remove_dot_after_word_not_followed_by_new_sentence__do_not_remove():
+  text = ""
 
 # endregion

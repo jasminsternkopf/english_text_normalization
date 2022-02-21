@@ -6,7 +6,7 @@ from english_text_normalization.adjustments import (
     normalize_degrees_minutes_and_seconds, normalize_double_quotation_marks,
     normalize_emails_and_at, normalize_latitude_and_longitude,
     normalize_length_units, normalize_numbers, normalize_king_name_followed_by_roman_numeral,
-    normalize_per_cent_dot_if_not_end_of_sentence, normalize_percent,
+    normalize_per_cent_dot, normalize_percent,
     normalize_point_before_numbers, normalize_pounds_shillings_and_pence,
     normalize_second_and_third_when_abbr_with_d,
     normalize_single_quotation_marks_and_apostrophes,
