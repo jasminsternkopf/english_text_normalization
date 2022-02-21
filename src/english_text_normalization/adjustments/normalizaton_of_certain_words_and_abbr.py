@@ -1,4 +1,5 @@
 import re
+from typing import Pattern
 
 SENTENCE_ENDS = [".", "?", "!"]
 SENTENCE_ENDS = [re.escape(x) for x in SENTENCE_ENDS]
@@ -72,13 +73,27 @@ def replace_eg_with_for_example(text: str) -> str:
   return text
 
 
+def str_to_str_as_end_of_sentence_regex(input_str: str) -> Pattern:
+  #pattern = re.compile(rf"{input_str}(['\"]? +['\"]?[A-Z])")
+  pattern = re.compile(rf"{input_str}([\"')]{{0,3}} *(?:-- *)?[\"'(]{{0,3}}[A-Z])")
+  return pattern
+
+
+ETC_AT_END_OF_SENTENCE = str_to_str_as_end_of_sentence_regex(" etc.")
+
+
 def replace_etc_with_et_cetera(text: str) -> str:
+  text = ETC_AT_END_OF_SENTENCE.sub(r" et cetera.\1", text)
   text = text.replace("etc.", "et cetera")
   text = text.replace("Etc.", "Et cetera")
   return text
 
 
+AND_CHAR_C_DOT_AT_END_OF_SENTENCE = str_to_str_as_end_of_sentence_regex("&c.")
+
+
 def replace_and_char_c_dot_with_and_so_forth(text: str) -> str:
+  text = AND_CHAR_C_DOT_AT_END_OF_SENTENCE.sub(r"and so forth.\1", text)
   text = text.replace("&c.", "and so forth")
   return text
 

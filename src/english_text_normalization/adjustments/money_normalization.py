@@ -31,12 +31,12 @@ def normalize_pounds(text: str) -> str:
 
 
 def normalize_shillings_and_pounds_without_dots(text: str) -> str:
-  text = SHILLINGS_AND_PENCE_WITHOUT_DOT.sub(r" \1 shillings and \2 pence\3", text)
+  text = SHILLINGS_AND_PENCE_WITHOUT_DOT.sub(r" \1 shillings \2 pence\3", text)
   return text
 
 
 def normalize_shillings_and_pounds_with_dots(text: str) -> str:
-  text = SHILLINGS_AND_PENCE_WITH_DOT.sub(r" \1 shillings and \2 pence\3", text)
+  text = SHILLINGS_AND_PENCE_WITH_DOT.sub(r" \1 shillings \2 pence\3", text)
   return text
 
 

@@ -1,5 +1,6 @@
 from english_text_normalization.adjustments.normalizaton_of_certain_words_and_abbr import (
     change_p_dot_before_number_into_page, normalize_per_cent_dot,
+    replace_and_char_c_dot_with_and_so_forth, replace_etc_with_et_cetera,
     replace_no_with_number)
 
 # region replace_no_with_number
@@ -88,5 +89,48 @@ def test_normalize_per_cent_dot__double_hyphen_after_percent_but_end_of_sentence
   res = normalize_per_cent_dot(text)
 
   assert res == "I've got two thousand laid out at seven percent.--Haven't I, Clara?"
+
+# endregion
+
+# region replace_etc_with_et_cetera
+
+
+def test_replace_etc_with_et_cetera__etc_at_end_of_sentence():
+  text = "I ate spaghetti etc. What did you eat?"
+  res = replace_etc_with_et_cetera(text)
+
+  assert res == "I ate spaghetti et cetera. What did you eat?"
+
+
+def test_replace_etc_with_et_cetera__etc_at_end_of_sentence__with_extra_chars():
+  text = "\"I ate spaghetti etc.\"--('What did you eat?')"
+  res = replace_etc_with_et_cetera(text)
+
+  assert res == "\"I ate spaghetti et cetera.\"--('What did you eat?')"
+
+
+def test_replace_etc_with_et_cetera__etc_in_middle_of_sentence():
+  text = "I ate spaghetti etc. -- what did you eat?"
+  res = replace_etc_with_et_cetera(text)
+
+  assert res == "I ate spaghetti et cetera -- what did you eat?"
+
+# endregion
+
+# region replace_and_char_c_dot_with_and_so_forth
+
+
+def test_replace_and_char_c_dot_with_and_so_forth__and_char_c_dot_at_end_of_sentence():
+  text = "I ate spaghetti &c. What did you eat?"
+  res = replace_and_char_c_dot_with_and_so_forth(text)
+
+  assert res == "I ate spaghetti and so forth. What did you eat?"
+
+
+def test_replace_and_char_c_dot_with_and_so_forth__and_char_c_dot_in_middle_of_sentence():
+  text = "I ate spaghetti &c. -- what did you eat?"
+  res = replace_and_char_c_dot_with_and_so_forth(text)
+
+  assert res == "I ate spaghetti and so forth -- what did you eat?"
 
 # endregion

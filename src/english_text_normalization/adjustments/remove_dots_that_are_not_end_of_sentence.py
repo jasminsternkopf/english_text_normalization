@@ -43,7 +43,7 @@ def remove_dot_before_comma(text: str) -> str:
   return text
 
 
-WORD_WITH_DOT_NOT_FOLLOWED_BY_NEW_SENTENCE = re.compile(r"([a-z])\.([,;:]? +)([^A-Z\"(\[])")
+WORD_WITH_DOT_NOT_FOLLOWED_BY_NEW_SENTENCE = re.compile(r"([a-z])\.([,;:]? +)([^A-Z\" (\[])")
 
 
 def remove_dot_after_word_not_followed_by_new_sentence(text: str) -> str:
