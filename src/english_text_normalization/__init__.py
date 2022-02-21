@@ -32,5 +32,5 @@ from english_text_normalization.adjustments import (
     replace_hyphen_between_numbers_with_to, replace_ie_with_that_is,
     replace_mail_addresses, replace_no_with_number, replace_nos_with_numbers,
     replace_vg_with_for_instance, replace_viz_with_which_is,
-    write_out_month_abbreviations, write_out_plus_when_surrounded_by_space)
+    write_out_month_abbreviations, write_out_plus_when_surrounded_by_space, british_english_to_american_english)
 from english_text_normalization.sentence_extraction import extract_sentences

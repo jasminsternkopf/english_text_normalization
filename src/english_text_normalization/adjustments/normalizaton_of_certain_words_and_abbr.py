@@ -165,18 +165,3 @@ def british_english_to_american_english(text: str) -> str:
   for british_to_american in BRITISH_TO_AMERICAN_EXPRESSIONS_REGEX:
     text = british_to_american[0].sub(british_to_american[1], text)
   return text
-
-# def british_english_to_american_english_for_given_expression(text: str, british_expression: str, american_expression: str) -> str:
-#   british_expression_as_regex = re.compile(rf"([a-z]){british_expression}")
-#   text = british_expression_as_regex.sub(rf"\1{american_expression}", text)
-#   return text
-
-
-# BRITISH_TO_AMERICAN_EXPRESSIONS = ()
-
-# def british_english_to_american_english(text: str) -> str:
-#   text = british_english_to_american_english_for_given_expression(text, "our", "or")
-#   text = british_english_to_american_english_for_given_expression(text, "ise", "ize")
-#   text = british_english_to_american_english_for_given_expression(text, "tre", "ter")
-#   text = british_english_to_american_english_for_given_expression(text, "logue", "log")
-#   return text
