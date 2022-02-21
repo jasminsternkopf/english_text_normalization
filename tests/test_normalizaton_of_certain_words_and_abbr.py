@@ -1,7 +1,9 @@
+import re
+
 from english_text_normalization.adjustments.normalizaton_of_certain_words_and_abbr import (
-    change_p_dot_before_number_into_page, normalize_per_cent_dot,
-    replace_and_char_c_dot_with_and_so_forth, replace_etc_with_et_cetera,
-    replace_no_with_number)
+    british_english_to_american_english, change_p_dot_before_number_into_page,
+    normalize_per_cent_dot, replace_and_char_c_dot_with_and_so_forth,
+    replace_etc_with_et_cetera, replace_no_with_number)
 
 # region replace_no_with_number
 
@@ -132,5 +134,16 @@ def test_replace_and_char_c_dot_with_and_so_forth__and_char_c_dot_in_middle_of_s
   res = replace_and_char_c_dot_with_and_so_forth(text)
 
   assert res == "I ate spaghetti and so forth -- what did you eat?"
+
+# endregion
+
+
+# region british_english_to_american_english
+
+def test_british_english_to_american_english():
+  text = "In the catalogue, my favourite colour is normalised to one metre."
+  res = british_english_to_american_english(text)
+
+  assert res == "In the catalog, my favorite color is normalized to one meter."
 
 # endregion

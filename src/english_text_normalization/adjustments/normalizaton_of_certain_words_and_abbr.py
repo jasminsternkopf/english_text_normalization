@@ -147,3 +147,36 @@ def normalize_per_cent_dot(text: str) -> str:
   text = PERCENT_BEFORE_QUESTION_OR_EXCLAMATION_MARK.sub(r" percent\1", text)
   text = text.replace(" per cent", " percent")
   return text
+
+
+def regex_british_english_to_american_english_for_given_expression(british_expression: str, american_expression: str) -> str:
+  british_expression_as_regex = re.compile(rf"([a-z]){british_expression}")
+  american_expression_as_regex = rf"\1{american_expression}"
+  return british_expression_as_regex, american_expression_as_regex
+
+
+BRITISH_TO_AMERICAN_EXPRESSIONS = [("our", "or"), ("ise", "ize"), ("tre", "ter"), ("logue", "log")]
+
+BRITISH_TO_AMERICAN_EXPRESSIONS_REGEX = [regex_british_english_to_american_english_for_given_expression(
+  british, american) for british, american in BRITISH_TO_AMERICAN_EXPRESSIONS]
+
+
+def british_english_to_american_english(text: str) -> str:
+  for british_to_american in BRITISH_TO_AMERICAN_EXPRESSIONS_REGEX:
+    text = british_to_american[0].sub(british_to_american[1], text)
+  return text
+
+# def british_english_to_american_english_for_given_expression(text: str, british_expression: str, american_expression: str) -> str:
+#   british_expression_as_regex = re.compile(rf"([a-z]){british_expression}")
+#   text = british_expression_as_regex.sub(rf"\1{american_expression}", text)
+#   return text
+
+
+# BRITISH_TO_AMERICAN_EXPRESSIONS = ()
+
+# def british_english_to_american_english(text: str) -> str:
+#   text = british_english_to_american_english_for_given_expression(text, "our", "or")
+#   text = british_english_to_american_english_for_given_expression(text, "ise", "ize")
+#   text = british_english_to_american_english_for_given_expression(text, "tre", "ter")
+#   text = british_english_to_american_english_for_given_expression(text, "logue", "log")
+#   return text
