@@ -1,5 +1,5 @@
 from english_text_normalization.auxiliary_methods.detect_king_names import (
-    find_words_in_wordcorpus, get_singular_of_word, get_word_variants)
+  find_words_in_wordcorpus, get_singular_of_word, get_word_variants)
 
 
 def test_get_singular_of_word():

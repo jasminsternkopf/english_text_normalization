@@ -42,7 +42,7 @@ def create_pickle_containing_all_books(folder: Path):
     pickle.dump(books, file)
 
 
-def execute_pipeline(word: str, methods: Iterable[Callable[[str], str]]) -> str:
+def execute_pipeline(word: str, methods: List[Callable[[str], str]]) -> str:
   result = word
   for method in methods:
     assert isinstance(method, Callable)

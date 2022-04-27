@@ -4,10 +4,11 @@ import sys
 from argparse import ArgumentParser
 from importlib.metadata import version
 from logging import getLogger
+from pathlib import Path
 from typing import Callable, Generator, List, Tuple
 
-from english_text_normalization_cli.main import (get_operations_listing_parser, get_normalizing_parser,
-                                                 get_sentence_extraction_parser)
+from english_text_normalization_cli.operations_listing import get_operations_listing_parser
+from english_text_normalization_cli.text_normalization import get_normalizing_parser
 
 __version__ = version("english-text-normalization")
 
@@ -30,8 +31,6 @@ def _init_parser():
 
   methods: Parsers = (
     ("normalize", "normalize text",
-     get_normalizing_parser),
-    ("extract-sentences", "extract sentences",
      get_normalizing_parser),
     ("list-operations", "list operations",
      get_operations_listing_parser),
@@ -88,11 +87,15 @@ def parse_args(args: List[str], productive: bool = False):
 
 def run(productive: bool):
   arguments = sys.argv[1:]
-  parse_args(arguments, productive)
+  parse_args(arguments, productive and not debug_file_exists())
 
 
 def run_prod():
   run(True)
+
+
+def debug_file_exists():
+  return Path("debug").is_file()
 
 
 if __name__ == "__main__":

@@ -39,7 +39,7 @@ VALID_OPERATIONS = {
   ),
   "mail": (
     "Normalize e-mail addresses and the '@'-symbol",
-    remove_linebreaks
+    replace_mail_addresses
   ),
   "strip": (
     "Strip whitespace from start and end",
@@ -66,6 +66,6 @@ def get_operations_and_descriptions() -> Generator[Tuple[str, str], None, None]:
 
 
 def build_normalizer(operations: List[str]) -> Callable[[str], str]:
-  methods = (VALID_OPERATIONS[op][1] for op in operations)
+  methods = list(VALID_OPERATIONS[op][1] for op in operations)
   result = partial(execute_pipeline, methods=methods)
   return result
