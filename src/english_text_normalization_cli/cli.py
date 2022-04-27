@@ -6,8 +6,8 @@ from importlib.metadata import version
 from logging import getLogger
 from typing import Callable, Generator, List, Tuple
 
-from english_text_normalization_cli.main import (init_normalizing_parser,
-                                                 init_sentence_extraction_parser)
+from english_text_normalization_cli.main import (get_operations_listing_parser, get_normalizing_parser,
+                                                 get_sentence_extraction_parser)
 
 __version__ = version("english-text-normalization")
 
@@ -30,9 +30,11 @@ def _init_parser():
 
   methods: Parsers = (
     ("normalize", "normalize text",
-     init_normalizing_parser),
+     get_normalizing_parser),
     ("extract-sentences", "extract sentences",
-     init_normalizing_parser),
+     get_normalizing_parser),
+    ("list-operations", "list operations",
+     get_operations_listing_parser),
   )
 
   for command, description, method in methods:
