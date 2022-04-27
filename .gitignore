@@ -133,3 +133,5 @@ dmypy.json
 data
 
 *debug*
+deploy-PyPI.sh
+todo.md
