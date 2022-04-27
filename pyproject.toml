@@ -1,7 +1,7 @@
 [project]
 name = "english-text-normalization"
 version = "0.0.1"
-description = "CLI to normalize English texts."
+description = "CLI and library to normalize English texts."
 readme = "README.md"
 requires-python = ">=3.6"
 license = {text = "MIT"}
