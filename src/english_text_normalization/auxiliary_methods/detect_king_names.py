@@ -2,10 +2,11 @@ from pathlib import Path
 from typing import Iterable, List, Optional, Tuple
 
 import enchant
-from english_text_normalization.auxiliary_methods.txt_files_reading import (
-    dump_iterable_in_txt_file, get_list_out_of_txt_file)
 from nltk.corpus import names as nltk_names
 from nltk.corpus import words as nltk_words
+
+from english_text_normalization.auxiliary_methods.txt_files_reading import (
+  dump_iterable_in_txt_file, get_list_out_of_txt_file)
 
 
 def get_word_variants(names_or_words: Iterable[str]) -> List[Tuple[str]]:
@@ -29,7 +30,13 @@ def get_singular_of_word(word: str) -> Optional[str]:
   return word[:-1]
 
 
+def ensure_nltk_words_downloaded():
+  import nltk
+  nltk.download('words', quiet=True)
+
+
 def find_words_in_wordcorpus(names_or_words: Iterable[Tuple[str]]) -> Tuple[List[str], List[str]]:
+  ensure_nltk_words_downloaded()
   words_in_corpus = []
   words_not_in_corpus = []
   for variants_of_a_name in names_or_words:

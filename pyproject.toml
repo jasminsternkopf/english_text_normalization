@@ -1,15 +1,96 @@
-[build-system]
-requires = ["setuptools", "wheel"]
-build-backend = "setuptools.build_meta"
+[project]
+name = "english-text-normalization"
+version = "0.0.1"
+description = "CLI and library to normalize English texts."
+readme = "README.md"
+requires-python = ">=3.6"
+license = {text = "MIT"}
+authors = [
+  {name = "Jasmin Sternkopf", email = "jasmin.sternkopf@mathematik.tu-chemnitz.de"},
+  {name = "Stefan Taubert", email = "stefan.taubert@posteo.me"}
+]
+maintainers = [
+  {name = "Stefan Taubert", email = "stefan.taubert@posteo.me"},
+]
+keywords = [
+  "Text-to-speech",
+  "Speech synthesis",
+  "Regex",
+  "Language",
+  "Linguistics"
+]
+classifiers = [
+  "Development Status :: 2 - Pre-Alpha",
+  "Operating System :: OS Independent",
+  "Operating System :: MacOS",
+  "Operating System :: POSIX",
+  "Operating System :: POSIX :: BSD",
+  "Operating System :: POSIX :: Linux",
+  "Operating System :: Unix",
+  "Operating System :: Microsoft :: Windows",
+  "Programming Language :: Python",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.6",
+  "Programming Language :: Python :: 3.7",
+  "Programming Language :: Python :: 3.8",
+  "Programming Language :: Python :: 3.9",
+  "Programming Language :: Python :: 3.10",
+  "License :: OSI Approved :: MIT License",
+]
+dependencies = [
+  "pyenchant",
+  "nltk",
+  "inflect",
+]
+
+[project.urls]
+Homepage = "https://github.com/jasminsternkopf/english_text_normalization"
+Issues = "https://github.com/jasminsternkopf/english_text_normalization/issues"
+
+[project.scripts]
+norm-eng-cli = "english_text_normalization_cli.cli:run_prod"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+include = [
+  "english_text_normalization",
+  "english_text_normalization_cli"
+]
+exclude = [
+  "english_text_normalization_tests",
+  "english_text_normalization_debug"
+]
+namespaces = true
 
 [tool.pytest.ini_options]
 log_cli = true
 log_level = "DEBUG"
 testpaths = [
-  "tests",
+  "src/english_text_normalization_tests",
 ]
 
 [tool.autopep8]
 indent-size = 2
 ignore = ["E121"]
 max_line_length = 100
+
+[tool.isort]
+line_length = 100
+indent = 2
+known_first_party = [
+  "english_text_normalization",
+  "english_text_normalization_cli"
+]
+known_third_party = [
+  "librosa",
+  "numpy",
+  "scipy",
+  "fastdtw"
+]
+
+[build-system]
+requires = [
+  "setuptools >= 40.9.0",
+  "wheel",
+]
+build-backend = "setuptools.build_meta"
