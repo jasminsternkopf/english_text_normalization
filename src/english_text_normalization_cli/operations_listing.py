@@ -1,22 +1,23 @@
 from argparse import ArgumentParser, Namespace
-from functools import partial
-from logging import getLogger
-from pathlib import Path
-from typing import Callable, Iterable, List, cast
+from typing import Callable
 
-from tqdm import tqdm
-
-from english_text_normalization import *
 from english_text_normalization.auxiliary_methods.operations import (
-  build_normalizer, get_operations_and_descriptions, get_valid_operations)
-from english_text_normalization.auxiliary_methods.txt_files_reading import get_text_files
-from english_text_normalization.normalization_pipeline import general_pipeline
+  get_operations_and_descriptions, get_valid_operations)
+
 
 def get_operations_listing_parser(parser: ArgumentParser) -> Callable[[str, str], None]:
   parser.description = "This command lists available operations that can be applied to texts."
+  parser.add_argument("-p", "--pipeline", type=str, metavar="OPERATION",
+                      choices=get_valid_operations(), nargs="*", help="show only these operations from a pipeline", default=[])
   return list_operations_ns
 
 
 def list_operations_ns(ns: Namespace):
-  for op, descr in get_operations_and_descriptions():
-    print(f"\"{op}\" -> {descr}")
+  ops_dsc = dict(get_operations_and_descriptions())
+  if len(ns.pipeline) > 0:
+    show_ops = ns.pipeline
+  else:
+    show_ops = list(ops_dsc.keys())
+
+  for nr, op in enumerate(show_ops, start=1):
+    print(f"{nr}. \"{op}\" -> {ops_dsc[op]}")

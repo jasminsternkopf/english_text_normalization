@@ -3,11 +3,10 @@ from functools import partial
 from logging import getLogger
 from multiprocessing import Pool, cpu_count
 from pathlib import Path
-from typing import Callable, Iterable, List, cast
+from typing import Callable, Tuple, cast
 
 from tqdm import tqdm
 
-from english_text_normalization import *
 from english_text_normalization.auxiliary_methods.operations import (build_normalizer,
                                                                      get_valid_operations)
 from english_text_normalization.auxiliary_methods.txt_files_reading import get_text_files
@@ -63,10 +62,18 @@ def normalize_ns(ns: Namespace):
     iterator = tqdm(iterator, total=len(paths), desc="Normalizing files", unit="f")
     result = list(iterator)
 
-  if all(result):
+  success_count = sum(success for success, _ in result)
+  if success_count == len(paths):
     logger.info("Everything was successfull!")
   else:
-    logger.warning("Not everything was successfull!")
+    logger.warning(
+      f"Not everything was successfull! Errors occurred on {success_count}/{len(paths)} file(s).")
+
+  changed_count = sum(changed_anything for _, changed_anything in result)
+  if changed_count == 0:
+    logger.info("Didn't changed anything!")
+  else:
+    logger.info(f"Changed content of {changed_count}/{len(paths)} files.")
 
 
 process_method: Callable[[str], str] = None
@@ -77,7 +84,7 @@ def __init_pool_prepare_cache_mp(method: Callable[[str], str]) -> None:
   process_method = method
 
 
-def process_path(path: Path, encoding: str, inp_dir: Path, out_dir: Path) -> bool:
+def process_path(path: Path, encoding: str, inp_dir: Path, out_dir: Path) -> Tuple[bool, bool]:
   global process_method
   logger = getLogger(__name__)
 
@@ -86,10 +93,14 @@ def process_path(path: Path, encoding: str, inp_dir: Path, out_dir: Path) -> boo
   except Exception as ex:
     logger.error(f"File {path.relative_to(inp_dir)} couldn't be read! Skipped.")
     logger.debug(ex)
-    return False
+    return False, False
 
   normalized_text = process_method(text)
+  changed_anything = normalized_text != text
   del text
+
+  if inp_dir == out_dir and not changed_anything:
+    return True, False
 
   new_path_with_txt_file = out_dir / path.relative_to(inp_dir)
 
@@ -99,8 +110,8 @@ def process_path(path: Path, encoding: str, inp_dir: Path, out_dir: Path) -> boo
   except Exception as ex:
     logger.error(f"File {path.relative_to(inp_dir)} couldn't be written! Skipped.")
     logger.debug(ex)
-    return False
+    return False, False
 
   del normalized_text
   del logger
-  return True
+  return True, changed_anything
