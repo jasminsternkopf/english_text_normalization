@@ -7,8 +7,9 @@ from logging import getLogger
 from pathlib import Path
 from typing import Callable, Generator, List, Tuple
 
+from english_text_normalization_cli.file_text_normalization import get_file_normalizing_parser
+from english_text_normalization_cli.folder_text_normalization import get_folder_normalizing_parser
 from english_text_normalization_cli.operations_listing import get_operations_listing_parser
-from english_text_normalization_cli.text_normalization import get_normalizing_parser
 
 __version__ = version("english-text-normalization")
 
@@ -20,7 +21,6 @@ INVOKE_HANDLER_VAR = "invoke_handler"
 def formatter(prog):
   return argparse.ArgumentDefaultsHelpFormatter(prog, max_help_position=40)
 
-
 def _init_parser():
   main_parser = ArgumentParser(
     formatter_class=formatter,
@@ -30,8 +30,10 @@ def _init_parser():
   subparsers = main_parser.add_subparsers(help="description")
 
   methods: Parsers = (
-    ("normalize", "normalize text",
-     get_normalizing_parser),
+    ("normalize-file", "normalize text files",
+     get_file_normalizing_parser),
+    ("normalize-folder", "normalize text folders",
+     get_folder_normalizing_parser),
     ("list-operations", "list operations",
      get_operations_listing_parser),
   )

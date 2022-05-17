@@ -12,7 +12,7 @@ from english_text_normalization.auxiliary_methods.operations import (build_norma
 from english_text_normalization.auxiliary_methods.txt_files_reading import get_text_files
 
 
-def get_normalizing_parser(parser: ArgumentParser) -> Callable[[str, str], None]:
+def get_folder_normalizing_parser(parser: ArgumentParser) -> Callable[[str, str], None]:
   parser.description = "This command normalizes English text."
   parser.add_argument("directory", type=Path, metavar="directory",
                       help="directory containing texts")
@@ -27,10 +27,10 @@ def get_normalizing_parser(parser: ArgumentParser) -> Callable[[str, str], None]
                       help="amount of files to chunk into one job", default=10)
   parser.add_argument("-mt", "--maxtasksperchild", type=int, metavar="NUMBER",
                       help="amount of tasks per child", default=None)
-  return normalize_ns
+  return folder_normalize_ns
 
 
-def normalize_ns(ns: Namespace):
+def folder_normalize_ns(ns: Namespace):
   logger = getLogger(__name__)
   inp_dir = cast(Path, ns.directory)
   if not inp_dir.is_dir():

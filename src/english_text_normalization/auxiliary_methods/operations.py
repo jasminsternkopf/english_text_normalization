@@ -53,6 +53,14 @@ VALID_OPERATIONS = {
     "Normalize time, weight and length units",
     normalize_all_units
   ),
+  "lower": (
+    "Convert everything to lower-case",
+    str.lower
+  ),
+  "upper": (
+    "Convert everything to upper-case",
+    str.upper
+  )
 }
 
 
