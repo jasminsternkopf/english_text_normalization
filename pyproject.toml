@@ -53,12 +53,13 @@ norm-eng-cli = "english_text_normalization_cli.cli:run_prod"
 [tool.setuptools.packages.find]
 where = ["src"]
 include = [
+  "english_text_normalization_cli",
   "english_text_normalization",
-  "english_text_normalization_cli"
+  "english_text_normalization.*",
 ]
 exclude = [
   "english_text_normalization_tests",
-  "english_text_normalization_debug"
+  "english_text_normalization_debug",
 ]
 namespaces = true
 

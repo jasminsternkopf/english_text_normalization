@@ -30,8 +30,8 @@ def get_all_files_in_all_subfolders(dir: Path) -> Generator[Path, None, None]:
 
 def get_list_out_of_txt_file(filename: str) -> List[str]:
   with open(filename) as f:
-    lines = f.readlines()
-  lines = [line[:-1] if line[-1] == "\n" else line for line in lines]
+    lines = f.read()
+  lines = lines.splitlines()
   return lines
 
 

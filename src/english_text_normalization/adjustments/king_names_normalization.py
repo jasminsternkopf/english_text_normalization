@@ -1,8 +1,8 @@
 import re
+from pathlib import Path
 from typing import Iterable
 
-from english_text_normalization.auxiliary_methods.txt_files_reading import \
-    get_list_out_of_txt_file
+from english_text_normalization.auxiliary_methods.txt_files_reading import get_list_out_of_txt_file
 
 KING_NUMBER_MAPPINGS_WITHOUT_DOT = [
   #(re.compile(r" the Ist(\W)"), r" the first\1"),
@@ -57,6 +57,7 @@ SAFE_KING_NAMES = {"Henry", "Charles", "James", "George", "Edward",
 
 
 def normalize_king_name_followed_by_roman_numeral(text: str) -> str:
-  king_names = get_list_out_of_txt_file("name_corpus.txt")
+  path_to_name_corpus = Path(__file__).parent.parent / "resources" / "name_corpus.txt"
+  king_names = get_list_out_of_txt_file(path_to_name_corpus)
   text = normalize_king_names_general(text, king_names, SAFE_KING_NAMES)
   return text
