@@ -62,7 +62,7 @@ VALID_OPERATIONS = {
     "Convert everything to upper-case",
     str.upper
   ),
-  "strip-quote": (
+  "strip-quotes": (
     "Remove quote symbols `\"` and `'` from the start and end of a line.",
     remove_quote_start_and_end
   )
