@@ -57,3 +57,8 @@ def test_component_parenthesis():
     "",
     "a",
   ]
+
+
+def test_component_remove_whitespace_before_sentence_punctuation():
+  result = remove_whitespace_before_sentence_punctuation("This . is , a test ?? And : abc:")
+  assert result == "This. is, a test?? And: abc:"

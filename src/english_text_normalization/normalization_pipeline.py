@@ -24,6 +24,8 @@ from english_text_normalization.adjustments.normalize_degrees import (
   normalize_degrees_minutes_and_seconds, normalize_temperatures_general)
 from english_text_normalization.adjustments.numbers import (
   expand_and_a_half, normalize_numbers, normalize_second_and_third_when_abbr_with_d)
+from english_text_normalization.adjustments.other import \
+  remove_whitespace_before_sentence_punctuation
 from english_text_normalization.adjustments.remove_dots_that_are_not_end_of_sentence import (
   normalize_am_and_pm, remove_dot_after_single_capital_letters)
 from english_text_normalization.adjustments.unit_abbreviations_normalization import \
@@ -101,9 +103,11 @@ def general_pipeline(text: str) -> str:
       remove_stars,
       replace_whitespace_with_space,
       remove_repeated_spaces,
+      remove_whitespace_before_sentence_punctuation,
       strip,
     )
   )
 
   return text
+
 # alles in [] wegcutten \[[^I\dFGS_g]

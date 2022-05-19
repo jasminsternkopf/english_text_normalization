@@ -70,7 +70,11 @@ VALID_OPERATIONS = {
   "strip-parentheses": (
     "Remove parentheses from the start and end of a line.",
     remove_parenthesis_start_and_end
-  )
+  ),
+  "rm-w-sent-punc": (
+    "Remove whitespace before sentence punctuation.",
+    remove_parenthesis_start_and_end
+  ),
 }
 
 

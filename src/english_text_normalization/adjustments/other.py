@@ -19,7 +19,7 @@ def remove_quote_start_and_end(text: str) -> str:
   return text
 
 
-PARENTHESES = r"\(\)\[\]\{\}⟨⟩"
+PARENTHESES = r"\(\)\[\]\{\}⟨⟩【】"
 # Line starting
 PARENTHESIS_PATTERN1 = re.compile(rf"\n[{PARENTHESES}]+")
 # Line ending
@@ -35,4 +35,13 @@ def remove_parenthesis_start_and_end(text: str) -> str:
   text = PARENTHESIS_PATTERN2.sub(r"\n", text)
   text = PARENTHESIS_PATTERN3.sub(r"", text)
   text = PARENTHESIS_PATTERN4.sub(r"", text)
+  return text
+
+
+SENTENCE_PUNCTUATION = r"\.\?\!;:,"
+SENTENCE_PUNCTUATION_PATTERN = re.compile(rf"\s+([{SENTENCE_PUNCTUATION}])")
+
+
+def remove_whitespace_before_sentence_punctuation(text: str) -> str:
+  text = SENTENCE_PUNCTUATION_PATTERN.sub(r"\1", text)
   return text
