@@ -2,7 +2,8 @@ from functools import partial
 from typing import Callable, Generator, List, Tuple, cast
 
 from english_text_normalization import *
-from english_text_normalization.adjustments.other import remove_quote_start_and_end
+from english_text_normalization.adjustments.other import (remove_parenthesis_start_and_end,
+                                                          remove_quote_start_and_end)
 from english_text_normalization.normalization_pipeline import execute_pipeline, general_pipeline
 
 VALID_OPERATIONS = {
@@ -68,7 +69,7 @@ VALID_OPERATIONS = {
   ),
   "strip-parentheses": (
     "Remove parentheses from the start and end of a line.",
-    remove_quote_start_and_end
+    remove_parenthesis_start_and_end
   )
 }
 
