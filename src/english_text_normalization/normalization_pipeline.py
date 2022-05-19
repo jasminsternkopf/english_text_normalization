@@ -11,7 +11,8 @@ from english_text_normalization.adjustments.layout_normalization import (
   add_dot_after_headings, insert_space_before_and_after_double_hyphen,
   normalize_three_and_four_dots, remove_double_hyphen_before_or_after_colon, remove_equal_sign,
   remove_linebreaks, remove_quotation_marks_when_used_as_itemization, remove_repeated_spaces,
-  remove_stars, remove_underscore_characters, replace_four_hyphens_by_two)
+  remove_stars, remove_underscore_characters, replace_four_hyphens_by_two,
+  replace_whitespace_with_space)
 from english_text_normalization.adjustments.money_normalization import \
   normalize_pounds_shillings_and_pence
 from english_text_normalization.adjustments.month_normalization import write_out_month_abbreviations
@@ -98,6 +99,7 @@ def general_pipeline(text: str) -> str:
       insert_space_before_and_after_double_hyphen,
       remove_sic,
       remove_stars,
+      replace_whitespace_with_space,
       remove_repeated_spaces,
       strip,
     )

@@ -2,6 +2,7 @@ from functools import partial
 from typing import Callable, Generator, List, Tuple, cast
 
 from english_text_normalization import *
+from english_text_normalization.adjustments.other import remove_quote_start_and_end
 from english_text_normalization.normalization_pipeline import execute_pipeline, general_pipeline
 
 VALID_OPERATIONS = {
@@ -60,6 +61,10 @@ VALID_OPERATIONS = {
   "upper": (
     "Convert everything to upper-case",
     str.upper
+  ),
+  "strip-quote": (
+    "Remove quote symbols `\"` and `'` from the start and end of a line.",
+    remove_quote_start_and_end
   )
 }
 

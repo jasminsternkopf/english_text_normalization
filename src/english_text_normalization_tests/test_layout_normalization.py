@@ -1,9 +1,8 @@
 from english_text_normalization.adjustments.layout_normalization import (
-    add_dot_after_headings, insert_space_before_and_after_double_hyphen,
-    normalize_three_and_four_dots, remove_illustrations, remove_linebreaks,
-    remove_numbers_in_square_brackets,
-    remove_quotation_marks_when_used_as_itemization, remove_repeated_spaces,
-    remove_stage_directions, remove_underscore_characters)
+  add_dot_after_headings, insert_space_before_and_after_double_hyphen,
+  normalize_three_and_four_dots, remove_illustrations, remove_linebreaks,
+  remove_numbers_in_square_brackets, remove_quotation_marks_when_used_as_itemization,
+  remove_repeated_spaces, remove_stage_directions, remove_underscore_characters)
 
 # region add_dot_after_headings
 

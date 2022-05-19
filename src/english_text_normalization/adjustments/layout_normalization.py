@@ -121,11 +121,17 @@ def remove_stars(text: str) -> str:
   return text
 
 
-REPEATED_SPACES = re.compile(r" {2,}")
+REPEATED_SPACES = re.compile(r"\s{2,}")
 
 
 def remove_repeated_spaces(text: str) -> str:
   text = REPEATED_SPACES.sub(" ", text)
+  return text
+
+WHITESPACE_PATTERN = re.compile(r"\s")
+
+def replace_whitespace_with_space(text: str) -> str:
+  text = WHITESPACE_PATTERN.sub(" ", text)
   return text
 
 
