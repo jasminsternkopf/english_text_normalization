@@ -1,7 +1,7 @@
 from english_text_normalization.adjustments.other import *
 
 
-def test_component():
+def test_component_quote():
   lines = (
     "\"a\"bc\"",
     "",
@@ -11,7 +11,7 @@ def test_component():
     "\"'\"",
     "\'",
     "\"",
-    "″⟨⟩‹›『〝a〟′“”』"
+    "\"'`「」『a』〝〟″‹›′“”"
   )
   lines = "\n".join(lines)
 
@@ -19,6 +19,35 @@ def test_component():
 
   assert result.splitlines() == [
     "a\"bc",
+    "",
+    "",
+    "abc",
+    "",
+    "",
+    "",
+    "",
+    "a",
+  ]
+
+
+def test_component_parenthesis():
+  lines = (
+    "(a(bc)",
+    "",
+    "",
+    "[{abc]]}",
+    "((",
+    "{}}",
+    "[]",
+    "()",
+    "(){}a[]⟨⟩"
+  )
+  lines = "\n".join(lines)
+
+  result = remove_parenthesis_start_and_end(lines)
+
+  assert result.splitlines() == [
+    "a(bc",
     "",
     "",
     "abc",

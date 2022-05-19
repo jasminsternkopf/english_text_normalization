@@ -63,7 +63,11 @@ VALID_OPERATIONS = {
     str.upper
   ),
   "strip-quotes": (
-    "Remove quote symbols `\"` and `'` from the start and end of a line.",
+    "Remove quote characters from the start and end of a line.",
+    remove_quote_start_and_end
+  ),
+  "strip-parentheses": (
+    "Remove parentheses from the start and end of a line.",
     remove_quote_start_and_end
   )
 }
