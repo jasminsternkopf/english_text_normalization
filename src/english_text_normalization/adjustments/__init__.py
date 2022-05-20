@@ -5,7 +5,7 @@ from english_text_normalization.adjustments.king_names_normalization import *
 from english_text_normalization.adjustments.layout_normalization import *
 from english_text_normalization.adjustments.money_normalization import *
 from english_text_normalization.adjustments.month_normalization import *
-from english_text_normalization.adjustments.normalizaton_of_certain_words_and_abbr import *
+from english_text_normalization.adjustments.normalization_of_certain_words_and_abbr import *
 from english_text_normalization.adjustments.normalize_degrees import *
 from english_text_normalization.adjustments.numbers import *
 from english_text_normalization.adjustments.other import *

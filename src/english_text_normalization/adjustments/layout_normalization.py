@@ -65,17 +65,6 @@ def remove_underscore_characters(text: str) -> str:
   return text
 
 
-DOUBLE_HYPHEN_NOT_AFTER_CAPITAL_LETTER_NOT_FOLLOWED_BY_COMMA = re.compile(r"([^A-Z\-])--([^,])")
-DOUBLE_HYPHEN_NOT_AFTER_CAPITAL_LETTER_FOLLOWED_BY_COMMA = re.compile(r"([^A-Z\-])--,")
-
-
-def insert_space_before_and_after_double_hyphen(text: str) -> str:
-  # exception: after capital letter - ist das sinnvoll? TODO
-  text = DOUBLE_HYPHEN_NOT_AFTER_CAPITAL_LETTER_NOT_FOLLOWED_BY_COMMA.sub(r"\1 -- \2", text)
-  text = DOUBLE_HYPHEN_NOT_AFTER_CAPITAL_LETTER_FOLLOWED_BY_COMMA.sub(r"\1 --,", text)
-  return text
-
-
 def remove_double_hyphen_before_or_after_colon(text: str) -> str:
   text = text.replace(":--", ": ")
   text = text.replace("--:", ":")
@@ -128,7 +117,9 @@ def remove_repeated_spaces(text: str) -> str:
   text = REPEATED_SPACES.sub(" ", text)
   return text
 
+
 WHITESPACE_PATTERN = re.compile(r"\s")
+
 
 def replace_whitespace_with_space(text: str) -> str:
   text = WHITESPACE_PATTERN.sub(" ", text)

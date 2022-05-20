@@ -62,3 +62,7 @@ def test_component_parenthesis():
 def test_component_remove_whitespace_before_sentence_punctuation():
   result = remove_whitespace_before_sentence_punctuation("This . is , a test ?? And : abc:")
   assert result == "This. is, a test?? And: abc:"
+
+def test_component_add_space_around_dashes():
+  result = add_space_around_dashes("I-- was--in the --house and -- test .--?. ---x")
+  assert result =="I -- was -- in the -- house and -- test . -- ?. ---x"

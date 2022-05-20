@@ -45,3 +45,15 @@ SENTENCE_PUNCTUATION_PATTERN = re.compile(rf"\s+([{SENTENCE_PUNCTUATION}])")
 def remove_whitespace_before_sentence_punctuation(text: str) -> str:
   text = SENTENCE_PUNCTUATION_PATTERN.sub(r"\1", text)
   return text
+
+
+DASH_WHITESPACE_PATTERN1 = re.compile(r"([^\s-])--([^\s-])")
+DASH_WHITESPACE_PATTERN2 = re.compile(r"([^\s-])--\s")
+DASH_WHITESPACE_PATTERN3 = re.compile(r"\s--([^\s-])")
+
+
+def add_space_around_dashes(text: str) -> str:
+  text = DASH_WHITESPACE_PATTERN1.sub(r"\1 -- \2", text)
+  text = DASH_WHITESPACE_PATTERN2.sub(r"\1 -- ", text)
+  text = DASH_WHITESPACE_PATTERN3.sub(r" -- \1", text)
+  return text

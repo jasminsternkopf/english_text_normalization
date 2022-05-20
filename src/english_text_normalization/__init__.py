@@ -1,7 +1,7 @@
 from english_text_normalization.adjustments import (
-  add_dot_after_headings, british_english_to_american_english, change_p_dot_before_number_into_page,
-  expand_abbreviations, expand_and_a_half, expand_units_of_measure, geo_to_george,
-  insert_space_before_and_after_double_hyphen, normalize_all_units, normalize_am_and_pm,
+  add_dot_after_headings, add_space_around_dashes, british_english_to_american_english,
+  change_p_dot_before_number_into_page, expand_abbreviations, expand_and_a_half,
+  expand_units_of_measure, geo_to_george, normalize_all_units, normalize_am_and_pm,
   normalize_degrees_minutes_and_seconds, normalize_double_quotation_marks, normalize_emails_and_at,
   normalize_king_name_followed_by_roman_numeral, normalize_latitude_and_longitude,
   normalize_length_units, normalize_numbers, normalize_per_cent_dot, normalize_percent,
