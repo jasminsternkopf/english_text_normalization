@@ -21,6 +21,7 @@ INVOKE_HANDLER_VAR = "invoke_handler"
 def formatter(prog):
   return argparse.ArgumentDefaultsHelpFormatter(prog, max_help_position=40)
 
+
 def _init_parser():
   main_parser = ArgumentParser(
     formatter_class=formatter,
