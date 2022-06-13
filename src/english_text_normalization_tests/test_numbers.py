@@ -1,9 +1,8 @@
 import re
 
 from english_text_normalization.adjustments.numbers import (
-    __expand_number, __number_re, __replace_e_to_the_power_of, __replace_minus,
-    expand_and_a_half, normalize_numbers,
-    number_to_word_when_number_at_beginning_of_sentence)
+  __expand_number, __number_re, __replace_e_to_the_power_of, __replace_minus, expand_and_a_half,
+  normalize_numbers, number_to_word_when_number_at_beginning_of_sentence)
 
 
 def test_replace_e_to_the_power_of__e_minus():

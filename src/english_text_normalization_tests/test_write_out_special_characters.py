@@ -1,6 +1,6 @@
 from english_text_normalization.adjustments.write_out_special_characters import (
-    normalize_double_quotation_marks, normalize_point_before_numbers,
-    normalize_single_quotation_marks_and_apostrophes, replace_hyphen_between_numbers_with_to)
+  normalize_double_quotation_marks, normalize_point_before_numbers,
+  normalize_single_quotation_marks_and_apostrophes, replace_hyphen_between_numbers_with_to)
 
 # region normalize_double_quotation_marks
 

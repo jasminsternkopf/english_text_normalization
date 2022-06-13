@@ -1,5 +1,5 @@
 from functools import partial
-from typing import Callable, Generator, List, Tuple, cast
+from typing import Callable, Generator, List, Tuple
 
 from english_text_normalization import *
 from english_text_normalization.adjustments.other import (remove_parenthesis_start_and_end,

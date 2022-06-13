@@ -1,9 +1,6 @@
 import os
-from collections import OrderedDict
 from pathlib import Path
-from typing import Generator, Iterable, List, Optional
-from typing import OrderedDict as OrderedDictType
-from typing import Set, Tuple
+from typing import Generator, Iterable, List, Set
 
 TXT_FILE_TYPE = ".txt"
 

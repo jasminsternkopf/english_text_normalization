@@ -1,13 +1,10 @@
 from argparse import ArgumentParser, Namespace
-from functools import partial
 from logging import getLogger
-from multiprocessing import Pool, cpu_count
 from pathlib import Path
-from typing import Callable, Tuple, cast
+from typing import Callable, cast
 
 from english_text_normalization.auxiliary_methods.operations import (build_normalizer,
                                                                      get_valid_operations)
-from english_text_normalization.auxiliary_methods.txt_files_reading import get_text_files
 
 
 def get_file_normalizing_parser(parser: ArgumentParser) -> Callable[[str, str], None]:

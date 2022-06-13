@@ -1,8 +1,6 @@
 from english_text_normalization.adjustments.remove_dots_that_are_not_end_of_sentence import (
-    remove_dot_after_single_capital_letters,
-    remove_dot_after_single_small_letters,
-    remove_dot_after_word_not_followed_by_new_sentence,
-    remove_dot_between_word_and_number)
+  remove_dot_after_single_capital_letters, remove_dot_after_single_small_letters,
+  remove_dot_after_word_not_followed_by_new_sentence, remove_dot_between_word_and_number)
 
 # region remove_dot_after_single_capital_letters
 

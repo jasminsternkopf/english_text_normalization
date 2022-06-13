@@ -1,9 +1,7 @@
-import re
 
 from english_text_normalization.adjustments.normalization_of_certain_words_and_abbr import (
-    british_english_to_american_english, change_p_dot_before_number_into_page,
-    normalize_per_cent_dot, replace_and_char_c_dot_with_and_so_forth,
-    replace_etc_with_et_cetera, replace_no_with_number)
+  british_english_to_american_english, change_p_dot_before_number_into_page, normalize_per_cent_dot,
+  replace_and_char_c_dot_with_and_so_forth, replace_etc_with_et_cetera, replace_no_with_number)
 
 # region replace_no_with_number
 

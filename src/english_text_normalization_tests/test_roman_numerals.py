@@ -1,5 +1,5 @@
-from english_text_normalization.auxiliary_methods.roman_numerals import (get_all_roman_numerals_up_to_N,
-                                                                         roman_units)
+from english_text_normalization.auxiliary_methods.roman_numerals import (
+  get_all_roman_numerals_up_to_N, roman_units)
 
 
 def test_roman_units():

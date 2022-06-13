@@ -2,7 +2,7 @@ import re
 from typing import Iterable, Tuple
 
 from english_text_normalization.adjustments.unit_abbreviations_normalization import \
-    POSSIBLE_FOLLOWING_CHARS_AFTER_ABBREVIATION
+  POSSIBLE_FOLLOWING_CHARS_AFTER_ABBREVIATION
 
 CELSIUS = re.compile(rf"(\d) ?deg\.? ?C\.?({POSSIBLE_FOLLOWING_CHARS_AFTER_ABBREVIATION})")
 #CENTIGRADE = re.compile(rf"(\d) ?deg\.? ?Cent({POSSIBLE_FOLLOWING_CHARS_AFTER_ABBREVIATION})")

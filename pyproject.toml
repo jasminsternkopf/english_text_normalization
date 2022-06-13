@@ -89,6 +89,21 @@ known_third_party = [
   "fastdtw"
 ]
 
+[tool.tox]
+legacy_tox_ini = """
+[tox]
+envlist = py{38,39,310}
+isolated_build = True
+
+[testenv]
+deps = 
+  pytest
+commands = 
+  pytest
+  norm-eng-cli
+  norm-eng-cli -v
+"""
+
 [build-system]
 requires = [
   "setuptools >= 40.9.0",

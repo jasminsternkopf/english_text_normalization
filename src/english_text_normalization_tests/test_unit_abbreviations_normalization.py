@@ -1,12 +1,9 @@
 import re
 
 from english_text_normalization.adjustments.unit_abbreviations_normalization import (
-    UNIT_MAPPINGS_LENGTH_PLURAL_AMERICAN, UNIT_MAPPINGS_LENGTH_SINGULAR,
-    UNIT_MAPPINGS_LENGTH_SINGULAR_AMERICAN, UNIT_MAPPINGS_TIME_SINGULAR,
-    UNIT_MAPPINGS_WEIGHT_SINGULAR, UNIT_MAPPINGS_WEIGHT_SINGULAR_AMERICAN,
-    get_plural_abbreviations, get_unit_abbreviations_as_regex,
-    normalize_all_units, normalize_given_units, normalize_length_units,
-    normalize_time_units, normalize_weight_units)
+  UNIT_MAPPINGS_TIME_SINGULAR, get_plural_abbreviations, get_unit_abbreviations_as_regex,
+  normalize_all_units, normalize_given_units, normalize_length_units, normalize_time_units,
+  normalize_weight_units)
 
 # region get_plural_abbreviations
 

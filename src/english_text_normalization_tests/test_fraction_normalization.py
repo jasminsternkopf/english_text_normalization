@@ -1,5 +1,4 @@
-from english_text_normalization.adjustments.fraction_normalization import \
-    normalize_fractions
+from english_text_normalization.adjustments.fraction_normalization import normalize_fractions
 
 
 def test_normalize_fractions__one_half():

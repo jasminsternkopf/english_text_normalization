@@ -1,6 +1,6 @@
 from english_text_normalization.adjustments.king_names_normalization import (
-    add_the_between_king_name_and_roman_numeral, normalize_king_names_general,
-    normalize_king_name_followed_by_roman_numeral)
+  add_the_between_king_name_and_roman_numeral, normalize_king_name_followed_by_roman_numeral,
+  normalize_king_names_general)
 
 
 def test_add_the_between_king_name_and_roman_numeral():

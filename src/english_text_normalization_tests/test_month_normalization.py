@@ -1,5 +1,4 @@
-from english_text_normalization.adjustments.month_normalization import \
-    write_out_month_abbreviations
+from english_text_normalization.adjustments.month_normalization import write_out_month_abbreviations
 
 
 def test_write_out_month_abbreviations():

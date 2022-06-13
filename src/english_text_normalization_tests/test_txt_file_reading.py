@@ -1,5 +1,4 @@
-from english_text_normalization.auxiliary_methods.txt_files_reading import \
-    get_str_out_of_txt_file
+from english_text_normalization.auxiliary_methods.txt_files_reading import get_str_out_of_txt_file
 
 
 def test_get_str_out_of_txt_file():

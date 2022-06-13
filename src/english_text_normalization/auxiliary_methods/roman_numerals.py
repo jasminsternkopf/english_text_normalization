@@ -1,7 +1,6 @@
 from typing import List
 
 
-
 def roman_numerals_for_a_certain_power_of_ten(power_of_ten: str, five_times_power_of_ten: str, next_power_of_ten: str) -> List[str]:
   all_numerals = []
   for no_of_five_times_power_of_ten in range(2):

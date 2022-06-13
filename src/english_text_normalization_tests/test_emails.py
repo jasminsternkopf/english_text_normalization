@@ -1,6 +1,4 @@
-from english_text_normalization.adjustments.emails import (normalize_emails_and_at,
-                                                           replace_at_symbols,
-                                                           replace_mail_addresses)
+from english_text_normalization.adjustments.emails import replace_at_symbols, replace_mail_addresses
 
 
 def test_replace_mail_addresses():

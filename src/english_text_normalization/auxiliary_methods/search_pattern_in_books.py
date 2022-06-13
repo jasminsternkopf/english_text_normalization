@@ -1,6 +1,5 @@
 import re
-from pathlib import Path
-from typing import Iterable, Iterator, List
+from typing import Iterable, Iterator
 
 
 def search_pattern_in_all_books(pattern: str, books: Iterable[str], chars_before_and_after: int = 5):

@@ -4,7 +4,7 @@
 [![PyPI](https://img.shields.io/pypi/pyversions/english-text-normalization.svg)](https://pypi.python.org/pypi/english-text-normalization)
 [![MIT](https://img.shields.io/github/license/jasminsternkopf/english_text_normalization.svg)](https://github.com/jasminsternkopf/english_text_normalization/blob/main/LICENSE)
 
-CLI and library to normalize English texts.
+Command-line interface (CLI) and library to normalize English texts.
 
 ## Installation
 
@@ -36,13 +36,21 @@ from english_text_normalization import *
 
 ### Dependencies
 
-- pyenchant
-- nltk
-- inflect
+- `pyenchant`
+- `nltk`
+- `inflect`
 
 ## Contributing
 
 If you notice an error, please don't hesitate to open an issue.
+
+## License
+
+MIT License
+
+## Acknowledgments
+
+Funded by the Deutsche Forschungsgemeinschaft (DFG, German Research Foundation) – Project-ID 416228727 – CRC 1410
 
 ## Citation
 

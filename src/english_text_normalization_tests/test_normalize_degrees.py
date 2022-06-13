@@ -1,6 +1,6 @@
 from english_text_normalization.adjustments.normalize_degrees import (
-    normalize_degrees_minutes_and_seconds, normalize_latitude_and_longitude,
-    normalize_temperatures_celsius, normalize_temperatures_fahrenheit)
+  normalize_degrees_minutes_and_seconds, normalize_latitude_and_longitude,
+  normalize_temperatures_celsius, normalize_temperatures_fahrenheit)
 
 # region normalize_temperatures_celsius
 

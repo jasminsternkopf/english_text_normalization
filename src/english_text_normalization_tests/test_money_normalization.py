@@ -1,7 +1,6 @@
 from english_text_normalization.adjustments.money_normalization import (
-    normalize_pence, normalize_pounds, normalize_pounds_shillings_and_pence,
-    normalize_shillings, normalize_shillings_and_pounds_with_dots,
-    normalize_shillings_and_pounds_without_dots)
+  normalize_pence, normalize_pounds, normalize_pounds_shillings_and_pence, normalize_shillings,
+  normalize_shillings_and_pounds_with_dots, normalize_shillings_and_pounds_without_dots)
 
 # region normalize_pounds
 

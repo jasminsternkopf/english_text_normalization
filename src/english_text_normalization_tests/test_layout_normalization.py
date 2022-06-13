@@ -1,6 +1,5 @@
 from english_text_normalization.adjustments.layout_normalization import (
-  add_dot_after_headings, insert_space_before_and_after_double_hyphen,
-  normalize_three_and_four_dots, remove_illustrations, remove_linebreaks,
+  add_dot_after_headings, normalize_three_and_four_dots, remove_illustrations, remove_linebreaks,
   remove_numbers_in_square_brackets, remove_quotation_marks_when_used_as_itemization,
   remove_repeated_spaces, remove_stage_directions, remove_underscore_characters)
 
@@ -173,37 +172,37 @@ def test_remove_quotation_marks_when_used_as_itemization_do_not_match_because_is
 
 # endregion
 
-# region insert_space_before_and_after_double_hyphen
+# # region insert_space_before_and_after_double_hyphen
 
 
-def test_insert_space_before_and_after_double_hyphen():
-  text = "It was not likely that a system which left innocent men--for the great bulk of new arrivals were still untried--to be pitchforked by chance anywhere"
-  res = insert_space_before_and_after_double_hyphen(text)
+# def test_insert_space_before_and_after_double_hyphen():
+#   text = "It was not likely that a system which left innocent men--for the great bulk of new arrivals were still untried--to be pitchforked by chance anywhere"
+#   res = insert_space_before_and_after_double_hyphen(text)
 
-  assert res == "It was not likely that a system which left innocent men -- for the great bulk of new arrivals were still untried -- to be pitchforked by chance anywhere"
-
-
-def test_insert_space_before_and_after_double_hyphen__do_not_replace_as_capital_letter_for_double_hyphen():
-  text = "D--n seize you all."
-  res = insert_space_before_and_after_double_hyphen(text)
-
-  assert res == text
+#   assert res == "It was not likely that a system which left innocent men -- for the great bulk of new arrivals were still untried -- to be pitchforked by chance anywhere"
 
 
-def test_insert_space_before_and_after_double_hyphen__comma_after_double_hyphen__no_space_between_double_hyphen_and_comma():
-  text = "\"Hoooo--,\" says Bowie."
-  res = insert_space_before_and_after_double_hyphen(text)
+# def test_insert_space_before_and_after_double_hyphen__do_not_replace_as_capital_letter_for_double_hyphen():
+#   text = "D--n seize you all."
+#   res = insert_space_before_and_after_double_hyphen(text)
 
-  assert res == "\"Hoooo --,\" says Bowie."
+#   assert res == text
 
 
-def test_insert_space_before_and_after_double_hyphen__do_not_replace_because_capital_letter_followed_by_four_hyphens():
-  text = "Adieu, dear L----, thou picture of boisterous industry!"
-  res = insert_space_before_and_after_double_hyphen(text)
+# def test_insert_space_before_and_after_double_hyphen__comma_after_double_hyphen__no_space_between_double_hyphen_and_comma():
+#   text = "\"Hoooo--,\" says Bowie."
+#   res = insert_space_before_and_after_double_hyphen(text)
 
-  assert res == text
+#   assert res == "\"Hoooo --,\" says Bowie."
 
-# endregion
+
+# def test_insert_space_before_and_after_double_hyphen__do_not_replace_because_capital_letter_followed_by_four_hyphens():
+#   text = "Adieu, dear L----, thou picture of boisterous industry!"
+#   res = insert_space_before_and_after_double_hyphen(text)
+
+#   assert res == text
+
+# # endregion
 
 # region remove_stage_directions
 
