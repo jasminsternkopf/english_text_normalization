@@ -1,9 +1,9 @@
 [project]
 name = "english-text-normalization"
-version = "0.0.1"
-description = "CLI and library to normalize English texts."
+version = "0.0.2"
+description = "Command-line interface (CLI) and library to normalize English texts."
 readme = "README.md"
-requires-python = ">=3.6"
+requires-python = ">=3.8"
 license = {text = "MIT"}
 authors = [
   {name = "Jasmin Sternkopf", email = "jasmin.sternkopf@mathematik.tu-chemnitz.de"},
@@ -30,8 +30,6 @@ classifiers = [
   "Operating System :: Microsoft :: Windows",
   "Programming Language :: Python",
   "Programming Language :: Python :: 3",
-  "Programming Language :: Python :: 3.6",
-  "Programming Language :: Python :: 3.7",
   "Programming Language :: Python :: 3.8",
   "Programming Language :: Python :: 3.9",
   "Programming Language :: Python :: 3.10",
@@ -56,9 +54,9 @@ include = [
   "english_text_normalization_cli",
   "english_text_normalization",
   "english_text_normalization.*",
+  "english_text_normalization_tests",
 ]
 exclude = [
-  "english_text_normalization_tests",
   "english_text_normalization_debug",
 ]
 namespaces = true

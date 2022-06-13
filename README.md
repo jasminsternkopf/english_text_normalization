@@ -3,6 +3,9 @@
 [![PyPI](https://img.shields.io/pypi/v/english-text-normalization.svg)](https://pypi.python.org/pypi/english-text-normalization)
 [![PyPI](https://img.shields.io/pypi/pyversions/english-text-normalization.svg)](https://pypi.python.org/pypi/english-text-normalization)
 [![MIT](https://img.shields.io/github/license/jasminsternkopf/english_text_normalization.svg)](https://github.com/jasminsternkopf/english_text_normalization/blob/main/LICENSE)
+[![PyPI](https://img.shields.io/pypi/wheel/english-text-normalization.svg)](https://pypi.python.org/pypi/english-text-normalization/#files)
+![PyPI](https://img.shields.io/pypi/implementation/english-text-normalization.svg)
+[![PyPI](https://img.shields.io/github/commits-since/jasminsternkopf/english_text_normalization/latest/main.svg)](https://github.com/jasminsternkopf/english_text_normalization/compare/v0.0.2...main)
 
 Command-line interface (CLI) and library to normalize English texts.
 
