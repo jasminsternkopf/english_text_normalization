@@ -39,6 +39,7 @@ dependencies = [
   "pyenchant",
   "nltk",
   "inflect",
+  "unidecode",
 ]
 
 [project.urls]
@@ -81,10 +82,10 @@ known_first_party = [
   "english_text_normalization_cli"
 ]
 known_third_party = [
-  "librosa",
-  "numpy",
-  "scipy",
-  "fastdtw"
+  "pyenchant",
+  "nltk",
+  "inflect",
+  "unidecode",
 ]
 
 [tool.tox]

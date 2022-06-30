@@ -1,3 +1,4 @@
+from unidecode import unidecode_expect_ascii
 import pickle
 from pathlib import Path
 from typing import Callable, List
@@ -103,9 +104,11 @@ def general_pipeline(text: str) -> str:
       remove_repeated_spaces,
       remove_whitespace_before_sentence_punctuation,
       strip,
+      unidecode_expect_ascii,
     )
   )
 
   return text
+
 
 # alles in [] wegcutten \[[^I\dFGS_g]
