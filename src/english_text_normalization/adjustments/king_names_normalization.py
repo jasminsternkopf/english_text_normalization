@@ -53,7 +53,7 @@ def add_the_between_king_name_and_roman_numeral(text: str, king_names: Iterable[
 
 
 SAFE_KING_NAMES = {"Henry", "Charles", "James", "George", "Edward",
-                   "Richard", "Ferdinand", "William", "Clement", "Louis", "Napoleon", "Philip", "Thibault", "Clement", "Catharine", "Alexander", "Leo", "Henri", "Christian", "Nicholas", "Hermann", "Akbar", "Harry", "Rodolph", "Gregory", "Fred", "Urban", "Karl", "Frederic", "Paul"}
+                   "Richard", "Ferdinand", "William", "Clement", "Louis", "Napoleon", "Philip", "Thibault", "Catharine", "Alexander", "Leo", "Henri", "Christian", "Nicholas", "Hermann", "Akbar", "Harry", "Rodolph", "Gregory", "Fred", "Urban", "Karl", "Frederic", "Paul"}
 
 
 def normalize_king_name_followed_by_roman_numeral(text: str) -> str:
