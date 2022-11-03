@@ -98,7 +98,7 @@ def run_prod():
 
 
 def debug_file_exists():
-  return Path("debug").is_file()
+  return Path("/tmp/english-text-normalization-debug").is_file()
 
 
 if __name__ == "__main__":
