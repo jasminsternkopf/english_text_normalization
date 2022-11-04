@@ -1,29 +1,30 @@
 from argparse import ArgumentParser, Namespace
-from logging import getLogger
+from logging import Logger
 from pathlib import Path
 from typing import Callable, cast
 
 from english_text_normalization.auxiliary_methods.operations import (build_normalizer,
                                                                      get_valid_operations)
+from english_text_normalization_cli.globals import ExecutionResult
+from english_text_normalization_cli.helper import (parse_codec, parse_existing_file,
+                                                   parse_non_empty_or_whitespace, parse_path)
 
 
 def get_file_normalizing_parser(parser: ArgumentParser) -> Callable[[str, str], None]:
   parser.description = "This command normalizes English text."
-  parser.add_argument("file", type=Path, metavar="FILE-PATH",
+  parser.add_argument("file", type=parse_existing_file, metavar="FILE",
                       help="text file")
-  parser.add_argument("operations", type=str, metavar="operations",
+  parser.add_argument("operations", type=parse_non_empty_or_whitespace, metavar="OPERATION",
                       choices=get_valid_operations(), nargs="+", help="operations to apply; order will be considered; same operation can be applied multiple times")
-  parser.add_argument("-e", "--encoding", type=str, default="UTF-8", help="encoding of the texts")
-  parser.add_argument("-o", "--output", type=Path, metavar="OUTPUT-PATH",
+  parser.add_argument("-e", "--encoding", type=parse_codec,
+                      default="UTF-8", help="encoding of the texts")
+  parser.add_argument("-o", "--output", type=parse_path, metavar="OUTPUT",
                       help="custom output path", default=None)
   return file_normalize_ns
 
 
-def file_normalize_ns(ns: Namespace):
-  logger = getLogger(__name__)
+def file_normalize_ns(ns: Namespace, logger: Logger, flogger: Logger) -> ExecutionResult:
   inp_file = cast(Path, ns.file)
-  if not inp_file.is_file():
-    raise ValueError("Parameter 'file': File does not exist!")
 
   try:
     text = inp_file.read_text(ns.encoding)
@@ -39,7 +40,6 @@ def file_normalize_ns(ns: Namespace):
   del text
 
   if not changed_anything:
-    logger.info("Didn't changed anything!")
     return True, False
 
   output_path = inp_file
