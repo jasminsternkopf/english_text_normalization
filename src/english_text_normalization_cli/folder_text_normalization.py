@@ -67,7 +67,7 @@ def folder_normalize_ns(ns: Namespace):
     logger.info("Everything was successful!")
   else:
     logger.warning(
-      f"Not everything was successful! Errors occurred on {success_count}/{len(paths)} file(s).")
+      f"Not everything was successful! Errors occurred on {len(paths)-success_count}/{len(paths)} file(s).")
 
   changed_count = sum(changed_anything for _, changed_anything in result)
   if changed_count == 0:
