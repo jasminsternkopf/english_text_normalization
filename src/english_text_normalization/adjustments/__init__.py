@@ -12,3 +12,4 @@ from english_text_normalization.adjustments.other import *
 from english_text_normalization.adjustments.remove_dots_that_are_not_end_of_sentence import *
 from english_text_normalization.adjustments.unit_abbreviations_normalization import *
 from english_text_normalization.adjustments.write_out_special_characters import *
+from english_text_normalization.normalization_pipeline import execute_pipeline
