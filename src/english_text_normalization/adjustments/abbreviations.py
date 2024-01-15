@@ -25,6 +25,7 @@ _mappings = [
   ('Mrs', 'Misess'),
   ('Mr', 'Mister'),
   ('Dr', 'Doctor'),
+  ('Prof', 'Professor'),
   ('St', 'Saint'),
   ('Sta', 'Santa'),  # kommt nur bei Lectures on Painting vor
   ('Co', 'Company'),
