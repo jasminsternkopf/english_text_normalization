@@ -24,5 +24,6 @@ from english_text_normalization.adjustments import (
   replace_mail_addresses, replace_no_with_number, replace_nos_with_numbers,
   replace_vg_with_for_instance, replace_viz_with_which_is, replace_whitespace_with_space,
   write_out_month_abbreviations, write_out_plus_when_surrounded_by_space)
-from english_text_normalization.normalization_pipeline import strip
+from english_text_normalization.normalization_pipeline import (
+  execute_pipeline, remove_whitespace_before_sentence_punctuation, strip)
 from english_text_normalization.sentence_extraction import extract_sentences
