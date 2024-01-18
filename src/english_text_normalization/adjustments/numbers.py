@@ -1,4 +1,5 @@
 import re
+from logging import getLogger
 from typing import Match
 
 import inflect
@@ -58,8 +59,8 @@ def __expand_number(m: Match) -> str:
   num = int(m.group(0))
   if num >= UNDECILLION:
     # Inflect does not support this until now.
-    # logger = getLogger(__name__)
-    # logger.warning(f"Failed normalizing number: \"{m.string}\". Therefore removed it.")
+    logger = getLogger(__name__)
+    logger.warning(f"Failed normalizing number: \"{m.string}\". Therefore removed it.")
     return ""
   if num <= 1000 or 2000 <= num < 2010 or num >= 3000:
     return __inflect.number_to_words(num, andword='')
