@@ -1,7 +1,8 @@
-from unidecode import unidecode_expect_ascii
 import pickle
 from pathlib import Path
 from typing import Callable, List
+
+from unidecode import unidecode_expect_ascii
 
 from english_text_normalization.adjustments.abbreviations import expand_abbreviations
 from english_text_normalization.adjustments.emails import normalize_emails_and_at

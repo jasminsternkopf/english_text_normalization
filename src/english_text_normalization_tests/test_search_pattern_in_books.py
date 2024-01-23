@@ -14,7 +14,7 @@ def test_search_pattern_in_all_books():
     "abcdef",
     "ABCDEfg",
   ]
-  pattern = "cd"  # re.compile(r"cd")
+  pattern = r"cd"  # re.compile(r"cd")
   res = search_pattern_in_all_books(pattern, books, 2)
 
   assert list(res) == ["Abcdef", "abcdef"]
@@ -26,7 +26,7 @@ def test_search_pattern_in_all_books__double_result_cut_out():
     "abcdef",
     "ABCDEfg",
   ]
-  pattern = "cd"  # re.compile(r"cd")
+  pattern = r"cd"  # re.compile(r"cd")
   res = search_pattern_in_all_books(pattern, books, 1)
 
   assert list(res) == ["bcde", "bcde"]
@@ -38,7 +38,7 @@ def test_search_pattern_in_all_books__pattern_at_beginning_and_end():
     "abcdef",
     "fg",
   ]
-  pattern = "fg"  # re.compile(r"cd")
+  pattern = r"fg"  # re.compile(r"cd")
   res = search_pattern_in_all_books(pattern, books, 2)
 
   assert list(res) == ["defg", "fg"]
@@ -50,7 +50,7 @@ def test_search_pattern_in_all_books__with_new_lines_in_book():
     "abcd\nef",
     "ab\ncdefg",
   ]
-  pattern = "cd"  # re.compile(r"cd")
+  pattern = r"cd"  # re.compile(r"cd")
   res = search_pattern_in_all_books(pattern, books, 3)
 
   assert list(res) == ["abcd", "cdefg"]
@@ -62,7 +62,7 @@ def test_process_matches__cut_out_duplicates():
     "abcdef",
     "ABCDEfg",
   ]
-  pattern = "cd"  # re.compile(r"cd")
+  pattern = r"cd"  # re.compile(r"cd")
   matches = search_pattern_in_all_books(pattern, books, 1)
   res = process_matches(matches)
 
@@ -75,7 +75,7 @@ def test_process_matches__sort_alphabetically():
     "ab\ncdefg",
     "abcd\nef",
   ]
-  pattern = "cd"  # re.compile(r"cd")
+  pattern = r"cd"  # re.compile(r"cd")
   matches = search_pattern_in_all_books(pattern, books, 3)
   res = process_matches(matches)
 
@@ -101,7 +101,7 @@ def test_search_pattern_in_all_books_and_word_before_and_after():
     "Henry III. from England",
     "II. HEADLINE"
   ]
-  pattern = "II\."
+  pattern = r"II\."
   res = search_pattern_in_all_books_and_word_before_and_after(pattern, books)
   res = list(res)
 
@@ -115,7 +115,7 @@ def test_search_pattern_in_all_books_and_word_before_and_after_with_new_lines():
     "abc\nHenry III. from England\ndef",
     "abc\nII. HEADLINE\ndef"
   ]
-  pattern = "II\."
+  pattern = r"II\."
   res = search_pattern_in_all_books_and_word_before_and_after(pattern, books)
   res = list(res)
 
@@ -129,7 +129,7 @@ def test_search_pattern_in_all_books_and_word_before():
     "Henry III. from England",
     "II. HEADLINE"
   ]
-  pattern = "II\."
+  pattern = r"II\."
   res = search_pattern_in_all_books_and_word_before(pattern, books)
   res = list(res)
 
@@ -143,7 +143,7 @@ def test_search_pattern_in_all_books_and_word_before_without_dot():
     "Henry III from England",
     "II HEADLINE"
   ]
-  pattern = "II"
+  pattern = r"II"
   res = search_pattern_in_all_books_and_word_before(pattern, books)
   res = list(res)
 
@@ -157,7 +157,7 @@ def test_search_pattern_in_all_books_and_word_before_with_new_lines():
     "abc\nHenry III. from England\ndef",
     "abc\nII. HEADLINE\ndef"
   ]
-  pattern = "II\."
+  pattern = r"II\."
   res = search_pattern_in_all_books_and_word_before(pattern, books)
   res = list(res)
 
@@ -171,7 +171,7 @@ def test_search_pattern_in_all_books_and_word_before__with_new_lines__without_do
     "abc\nHenry III from England\ndef",
     "abc\nII HEADLINE\ndef"
   ]
-  pattern = "II"
+  pattern = r"II"
   res = search_pattern_in_all_books_and_word_before(pattern, books)
   res = list(res)
 
@@ -185,7 +185,7 @@ def test_search_pattern_in_all_books_and_word_after():
     "Henry III. from England",
     "II. HEADLINE"
   ]
-  pattern = "II\."
+  pattern = r"II\."
   res = search_pattern_in_all_books_and_word_after(pattern, books)
   res = list(res)
 
@@ -199,7 +199,7 @@ def test_search_pattern_in_all_books_and_word_after_with_new_lines():
     "abc\nHenry III. from England\ndef",
     "abc\nII. HEADLINE\ndef"
   ]
-  pattern = "II\."
+  pattern = r"II\."
   res = search_pattern_in_all_books_and_word_after(pattern, books)
   res = list(res)
 
@@ -214,7 +214,7 @@ def test_search_pattern_in_all_books_and_name_with_first_letter_capital_rest_sma
     "abc\nHenry III. from England\ndef",
     "abc\nII. HEADLINE\ndef"
   ]
-  pattern = "II\."
+  pattern = r"II\."
   res = search_pattern_in_all_books_and_name_with_first_letter_capital_rest_small_before(
     pattern, books)
   res = list(res)

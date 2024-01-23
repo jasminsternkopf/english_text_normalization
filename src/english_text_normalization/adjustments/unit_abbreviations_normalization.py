@@ -45,7 +45,7 @@ UNIT_MAPPINGS_WEIGHT_SINGULAR_AMERICAN = [
   ("lb", "pound"),
 ]
 
-POSSIBLE_FOLLOWING_CHARS_AFTER_ABBREVIATION = "[ ,:;)'\"\.!\?]"
+POSSIBLE_FOLLOWING_CHARS_AFTER_ABBREVIATION = r"[ ,:;)'\"\.!\?]"
 
 
 def normalize_all_units(text: str) -> str:
@@ -113,7 +113,7 @@ def get_plural_abbreviations(abbr_from_to: Iterable[Tuple[str, str]]) -> Iterabl
 
 def get_dot_regex(dot: Literal[Literal["always"], Literal["never"], Literal["optional"]]) -> str:
   if dot == "always":
-    return "\."
+    return r"\."
   if dot == "never":
-    return ""
-  return "\.?"
+    return r""
+  return r"\.?"

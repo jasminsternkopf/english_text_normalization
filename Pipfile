@@ -16,11 +16,11 @@ twine = "*"
 build = "*"
 tox = "*"
 
-[requires]
-python_version = "3.8"
-
 [packages]
 pyenchant = "*"
 nltk = "*"
 inflect = "*"
 unidecode = "*"
+
+[requires]
+python_version = "3.8"
