@@ -1,11 +1,15 @@
 cff-version: 1.2.0
-title: pronunciation-dictionary
-abstract: Library to save and load pronunciation dictionaries (language-independent).
+title: english-text-normalization
+abstract: Command-line interface (CLI) and library to normalize English texts.
 message: >-
   If you use this software, please cite it using the
   metadata from this file.
 type: software
 authors:
+  - email: jasmin.sternkopf@mathematik.tu-chemnitz.de
+    given-names: Jasmin
+    family-names: Sternkopf
+    affiliation: Chemnitz University of Technology
   - email: github@stefantaubert.com
     given-names: Stefan
     family-names: Taubert
@@ -15,5 +19,5 @@ authors:
 version: 0.0.3
 date-released: 2024-01-23
 license: MIT
-url: https://github.com/stefantaubert/pronunciation-dictionary
-doi: 10.5281/zenodo.10552058
+url: https://github.com/jasminsternkopf/english_text_normalization
+doi: 10.5281/zenodo.10555229
